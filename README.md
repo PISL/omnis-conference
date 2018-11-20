@@ -3,4 +3,4 @@ A conference management application centered around the needs of the annual Euro
 
 # Dependencies
 
-Requires omnis-infra library.
+Requires [omnis-infra](https://github.com/PISL/omnis-infra) library.
