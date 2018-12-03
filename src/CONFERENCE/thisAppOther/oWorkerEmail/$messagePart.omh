@@ -1,0 +1,33 @@
+Do prContent.$cols.$findname('char') Returns liColRef
+If liColRef
+	If prContent.char<>''
+		Do ioMessage.$createbodypartfromchar(prContent.char,prContent.mimeType,prContent.charset,prContent.encoding,prContent.disposition,prContent.filename) Returns inMessageId
+		If inMessageId<>0
+			Do ilMessageParts.$add(inMessageId)
+		End If
+	End If
+End If
+
+Do prContent.$cols.$findname('path') Returns liColRef
+If liColRef
+	If prContent.path<>''
+		Do ioMessage.$createbodypartfromchar(prContent.path,prContent.mimeType,prContent.charset,prContent.encoding,prContent.disposition,prContent.filename) Returns inMessageId
+		If inMessageId<>0
+			Do ilMessageParts.$add(inMessageId)
+		End If
+	End If
+End If
+
+Do prContent.$cols.$findname('binary') Returns liColRef
+If liColRef
+	If binlength(prContent.binary)>0
+		Do ioMessage.$createbodypartfromchar(prContent.binary,prContent.mimeType,prContent.charset,prContent.encoding,prContent.disposition,prContent.filename) Returns inMessageId
+	End If
+End If
+
+If ioMessage.$errorcode<>0
+	Calculate inValidationCode as ioMessage.$errorcode
+End If
+If ioMessage.$errortext<>''
+	Calculate icValidationMessage as ioMessage.$errortext
+End If

@@ -1,0 +1,9 @@
+If irUserRights.canInsert&icMode=''     ;; copied from $behaviour()
+	Calculate icDisplayMessage as ''
+	Calculate icMode as 'IP'     ;; insert person
+	Do irCurrentRecord.$clear()
+	Do irCurrentRecord.$defaults()
+	Do ilTopicConferences.$clear()
+	
+	Do $cinst.$behaviour()
+End If

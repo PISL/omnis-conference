@@ -1,0 +1,59 @@
+Do irPrices.$clear()
+Do llPerson.$cols.$add('inDG_OCCUPANCY',kInteger,kShortint)
+Do llPerson.$add()
+Calculate llPerson.$line as llPerson.$linecount
+
+For lnCount from 0 to 8 step 1
+	;  Calculate ldRegDate as dat(con('1/',10-lnCount,'/15'))
+	Calculate ldRegDate as dim(irCurrentRecord.CF_DATE_FROM,-lnCount)
+	
+	Calculate lcColName as con('CF_RATE',lnCount,'_TEXT')     ;; single
+	Calculate irPrices.[lcColName] as dname(kMonth,dim(irCurrentRecord.CF_DATE_FROM,-lnCount))
+	
+	Calculate lcColName as con('CF_RATE',lnCount,'_I')     ;; single
+	Calculate llPerson.inDG_OCCUPANCY as 0     ;; single
+	Do ioResolve.$productResolution(irCurrentRecord,llPerson,,ldRegDate) Returns llDetailsSingle
+	Calculate llDetailsSingle.$line as 1
+	Calculate irPrices.[lcColName] as llDetailsSingle.PRD_INT_PRODCODE
+	;  If irPrices.[lcColName]<>''
+	Calculate lcColName as replaceall(lcColName,'RATE','PRICE')
+	Calculate irPrices.[lcColName] as llDetailsSingle.PID_UNIT_PRICE
+	If tConstants.debugMode
+		Send to trace log {[ldRegDate]: single = [llDetailsSingle.PRD_INT_PRODCODE] / [llDetailsSingle.PID_UNIT_PRICE]}
+	End If
+	;  End If
+	
+	Calculate lcColName as con('CF_RATE',lnCount,'_H')     ;; shared
+	Calculate llPerson.inDG_OCCUPANCY as 1     ;; shared
+	Do ioResolve.$productResolution(irCurrentRecord,llPerson,,ldRegDate) Returns llDetailsShared
+	Calculate llDetailsShared.$line as 1
+	Calculate irPrices.[lcColName] as llDetailsShared.PRD_INT_PRODCODE
+	;  If irPrices.[lcColName]<>''
+	Calculate lcColName as replaceall(lcColName,'RATE','PRICE')
+	Calculate irPrices.[lcColName] as llDetailsShared.PID_UNIT_PRICE
+	If tConstants.debugMode
+		Send to trace log {[ldRegDate]: shared = [llDetailsShared.PRD_INT_PRODCODE] / [llDetailsShared.PID_UNIT_PRICE]}
+	End If
+	;  End If
+	
+	Calculate lcColName as con('CF_RATE',lnCount,'_N')     ;; no accommodation
+	Calculate llPerson.inDG_OCCUPANCY as 4     ;; no accomm
+	Do ioResolve.$productResolution(irCurrentRecord,llPerson,,ldRegDate) Returns llDetailsNoAccomm
+	Calculate llDetailsNoAccomm.$line as 1
+	Calculate irPrices.[lcColName] as llDetailsNoAccomm.PRD_INT_PRODCODE
+	;  If irPrices.[lcColName]<>''
+	Calculate lcColName as replaceall(lcColName,'RATE','PRICE')
+	Calculate irPrices.[lcColName] as llDetailsNoAccomm.PID_UNIT_PRICE
+	If tConstants.debugMode
+		Send to trace log {[ldRegDate]: no accom = [llDetailsNoAccomm.PRD_INT_PRODCODE] / [llDetailsNoAccomm.PID_UNIT_PRICE]}
+	End If
+	;  End If
+End For
+
+Calculate lcColName as con('CF_RATE_SP')     ;; spouse
+;  If irPrices.[lcColName]<>''
+Do ioResolve.$getProduct(irCurrentRecord.[lcColName]) Returns llDetailsSingle
+Calculate irPrices.[lcColName] as llDetailsSingle.PRD_INT_PRODCODE
+Calculate lcColName as replaceall(lcColName,'RATE','PRICE')
+Calculate irPrices.[lcColName] as llDetailsSingle.PID_UNIT_PRICE
+;  End If

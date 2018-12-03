@@ -1,0 +1,208 @@
+Calculate icDisplayMessage as ''
+If icMode='IC'     ;; insert converence/event
+	;  Calculate irCurrentRecord.PER_LABEL as icNewUser
+	Do irCurrentRecord.$validation() Returns lbProceed
+	If not(lbProceed)
+		Calculate icDisplayMessage as irCurrentRecord.icValidationMessage
+	Else
+		Do irCurrentRecord.$insert() Returns lbOK
+		If lbOK
+			;  now add the new user to the current Group
+			Do ilDisplayRecords.$add()
+			Calculate ilDisplayRecords.$line as ilDisplayRecords.$linecount
+			Do ilDisplayRecords.$assignrow($cinst.irCurrentRecord)
+			
+			;  duplicating a conference also means duplicating confPricing rules and possibly arrangements
+			If ilPricingGrid.$linecount>0
+				Calculate ilPricingGrid.$line as 0
+				While $Loop(ilPricingGrid)
+					Calculate lrRow as ilPricingGrid
+					Calculate lrRow.CFP_SEQ as #NULL
+					Calculate lrRow.CFP_CF_REF as irCurrentRecord.CF_SEQ
+					Do lrRow.$insert() Returns lbOK
+					If not(lbOK)
+						Calculate icDisplayMessage as lrRow.irErrorSQL.NativeErrorText
+						Breakpoint
+					End If
+				End While
+			End If
+			
+			If ilArrangements.$linecount>0
+				If ibDuplicateWithArrangements
+					;  If the arrangements are to be copied and they refer to Topics, then we need to copy the TopicConference links as well.
+					Do $DefineList(llTopicConf,'tTopicConferenceLink')
+					Do llTopicConf.$fetch_fk(inCF_SEQbeingDuplicated,'TPF_CF_REF')
+					
+					Calculate ilArrangements.$line as 0
+					While $Loop(ilArrangements)
+						Calculate lrRow as ilArrangements
+						Calculate lrRow.ARR_SEQ as #NULL
+						Calculate lrRow.ARR_CF_REF as irCurrentRecord.CF_SEQ
+						Do lrRow.$insert() Returns lbOK
+						If not(lbOK)
+							Calculate icDisplayMessage as lrRow.irErrorSQL.NativeErrorText
+							Breakpoint
+						Else
+							;  copy the TopicConference link as well
+							If lrRow.ARR_TPC_REF>0
+								Do llTopicConf.$search($ref.TPF_TPC_REF=lrRow.ARR_TPC_REF,1,0,0,0) Returns lbFound
+								If lbFound
+									Calculate lrRow as llTopicConf
+									Calculate lrRow.TPF_SEQ as #NULL
+									Calculate lrRow.TPF_MCOUNT as 0
+									Calculate lrRow.TPF_CF_REF as irCurrentRecord.CF_SEQ     ;; the new conference/event
+									Do lrRow.$insert() Returns lbOK
+									If not(lbOK)
+										Calculate icDisplayMessage as lrRow.irErrorSQL.NativeErrorText
+										Breakpoint
+									End If
+								End If
+							End If     ;; ARR_TPC_REF>0
+						End If     ;; lrRow.$insert
+					End While
+					
+					;  BEWARE !     ;; If there is a different venue then the Arrangements form will not display Rooms
+					;  as the ARR_FCY_REF will refer to a different venue.
+					;  And the speakers will not appear because the new conference/event does not have any delegates
+					;  and the speaker list is derived from Delegates with status 'SPEAKER'.
+					;  Combined, this results in next event's arrangements appearing as shells, or ghosts.  There but "not there" with so many values apparently missing.
+				End If     ;; ibDuplicateWithArrangements
+			End If
+			
+			Do method FetchRecords
+			Do ilDisplayRecords.$search($ref.CF_SEQ=irCurrentRecord.CF_SEQ,1,0,0,0)
+			
+			Calculate icMode as ''
+		Else
+			;  Calculate icMode as ''     ;; remain in insert mode
+			Calculate icDisplayMessage as irCurrentRecord.irErrorSQL.NativeErrorText
+		End If
+	End If
+	
+Else If icMode='EC'     ;; edit conference/event
+	Do irCurrentRecord.$validation() Returns lbProceed
+	If not(lbProceed)
+		Calculate icDisplayMessage as irCurrentRecord.icValidationMessage
+	Else
+		Do irCurrentRecord.$update() Returns lbOK
+		If lbOK
+			Calculate ilDisplayRecords.[ilDisplayRecords.$line] as irCurrentRecord
+			Calculate icMode as ''
+		Else
+			;  Calculate icMode as ''     ;; remain in edit mode
+			Calculate icDisplayMessage as irCurrentRecord.irErrorSQL.NativeErrorText
+		End If
+	End If
+	
+Else If icMode='IT'     ;; insert Topic
+	Calculate irTopic.TPC_GO_REF as trGroupOrg.GO_SEQ
+	Do irTopic.$validation() Returns lbProceed
+	If not(lbProceed)
+		Calculate icDisplayMessage as irTopic.icValidationMessage
+	Else
+		Do irTopic.$insert() Returns lbOK
+		If lbOK
+			Do ilTopics.$add()
+			Calculate ilTopics.$line as ilTopics.$linecount
+			Calculate ilTopics.[ilTopics.$line] as irTopic
+			Calculate icMode as ''
+		Else
+			Calculate icDisplayMessage as irTopic.irErrorSQL.NativeErrorText
+		End If
+	End If
+	
+Else If icMode='ET'     ;; edit topic
+	Do irTopic.$validation() Returns lbProceed
+	If not(lbProceed)
+		Calculate icDisplayMessage as irTopic.icValidationMessage
+	Else
+		Do irTopic.$update() Returns lbOK
+		If lbOK
+			Calculate ilTopics.[ilTopics.$line] as irTopic
+			Calculate icMode as ''
+		Else
+			Calculate icDisplayMessage as irTopic.irErrorSQL.NativeErrorText
+		End If
+	End If
+	
+Else If icMode='IP'|icMode='EP'     ;; insert or edit pricing
+	;  Breakpoint
+	Do ilPricingGrid.$unfilter()
+	
+	;  are we deleting any rules?     ;; If you find any, delete them.
+	Calculate ilPricingGrid.$line as 0
+	While $Loop(ilPricingGrid)
+		Do ilPricingGridOrig.$search($ref.CFP_SEQ=ilPricingGrid.CFP_SEQ,1,0,0,0) Returns lbFound
+		If lbFound
+			Calculate ilPricingGridOrig.[ilPricingGridOrig.$line].$selected as kTrue
+			Calculate ilPricingGrid.[ilPricingGrid.$line].$selected as kTrue
+		End If
+	End While
+	;  any non selected lines in ilPricingGridOrig are to be deleted
+	;  invert the selection for easier processing
+	Begin reversible block
+		Set current list ilPricingGridOrig
+	End reversible block
+	Invert selection for line(s) (All lines)
+	;  now the selected lines are for deleting
+	Calculate ilPricingGridOrig.$line as 0
+	While $Loop(ilPricingGridOrig,kTrue)
+		Calculate lrRow as ilPricingGridOrig
+		Do lrRow.$delete() Returns lbOK
+		If not(lbOK)
+			Do ilPricingGrid.$search(0)
+			Do ilPricingGridOrig.$search(0)
+			
+			Calculate icDisplayMessage as lrRow.irErrorSQL.NativeErrorText
+			Quit method
+		End If
+	End While
+	Do ilPricingGridOrig.$remove(kListDeleteSelected)
+	
+	;  any non selected lines in ilPricingGrid are new lines to be inserted
+	Calculate ilPricingGrid.$line as 0
+	While $Loop(ilPricingGrid)
+		Calculate lrRow as ilPricingGrid
+		
+		If lrRow.CFP_SEQ>0
+			Calculate lbModified as kFalse
+			Do ilPricingGridOrig.$search($ref.CFP_SEQ=ilPricingGrid.CFP_SEQ,1,0,0,0) Returns lbFound
+			If lbFound
+				Calculate lrOriginal as ilPricingGridOrig
+				Do toStrings.$HasRowBeenModified(lrOriginal,lrRow) Returns lbModified
+			Else
+				Calculate lrOriginal as ''
+			End If
+			
+			If lbModified
+				Do lrRow.$update() Returns lbOK
+				If not(lbOK)
+					Calculate icDisplayMessage as lrRow.irErrorSQL.NativeErrorText
+					Quit method
+				End If
+			End If
+		Else
+			Calculate lbModified as kTrue     ;; to satisfy next test
+			Calculate lrRow.CFP_CF_REF as irCurrentRecord.CF_SEQ
+			Do lrRow.$insert() Returns lbOK
+			If not(lbOK)
+				Calculate icDisplayMessage as lrRow.irErrorSQL.NativeErrorText
+				Quit method
+			End If
+		End If
+		If lbModified
+			If lbOK
+				Calculate ilPricingGrid.[ilPricingGrid.$line] as lrRow
+			Else
+				Calculate icDisplayMessage as lrRow.irErrorSQL.NativeErrorText
+			End If
+		End If
+	End While
+	
+	If icDisplayMessage=''     ;; no errors
+		Calculate ilPricingGridOrig as ilPricingGrid
+		Calculate icMode as ''
+	End If
+End If
+
+Do $cinst.$behaviour()

@@ -1,0 +1,71 @@
+Calculate icCompletionMessage as ''
+Calculate icValidationMessage as ''
+Calculate inValidationCode as 0
+
+Do ilHeaders.$clear()
+If plHeaders.$linecount>0
+	Do ilHeaders.$merge(plHeaders)
+End If
+
+If pcTo<>''
+	Calculate ioMessage.$to as pcTo
+Else If icEmailTO<>''
+	Calculate ioMessage.$to as icEmailTO
+Else
+	;  mandatory field
+	Calculate icValidationMessage as 'mandatory field TO ADDRESS is missing'
+	Quit method
+End If
+
+Calculate ioMessage.$subject as pcSubject
+Calculate ioMessage.$from as icFrom
+If icFromName<>''
+	;  How do we incorporate a from name with the SMTP worker?
+	;  Ask technical support in due course.
+	;  Do ilHeaders.$add('Return-path',con('<',icFrom,'>'))
+	;  Do ilHeaders.$add('From',con(icFromName,' <',icFrom,'>'))
+End If
+
+If pcCC<>''
+	Calculate ioMessage.$cc as pcCC
+Else If icEmailCC<>''
+	Calculate ioMessage.$cc as icEmailCC
+Else
+	Calculate ioMessage.$cc as ''
+End If
+
+If pcBCC<>''
+	Calculate ioMessage.$bcc as pcBCC
+Else If icEmailBCC<>''
+	Calculate ioMessage.$bcc as icEmailBCC
+Else
+	Calculate ioMessage.$bcc as ''
+End If
+
+;  Calculate ioMessage.$priority as     ;; default
+Calculate ioMessage.$extraheaders as ilHeaders
+;  Calculate ioMessage.$contentid as ilMessageParts.1.number
+
+If ibServerPrepared
+	;  Do liWorker.$timeout.$assign()     ;; default 30 seconds
+	;  Do liWorker.$clientsecret.$assign('x')
+	Do liWorker.$debuglog.$assign(ibDebugLog)
+	;  $init(zMessage,cServer[,iSecure=kOWEBsmtpSecureNotSecure,iAuthType=kOWEBsmtpAuthTypeNone,cUser,cPassword,cOAUTH2,cRealm,cNTLMDomain,lProps]) Initialise worker object so it is ready to send message zMessage.Returns true if successful
+	Do liWorker.$init(ioMessage,icSMTPserver,inSecure,inAuthType,icUser,icPassword,icOAUTH2authCode,icRealm,icNTLMdomain,ilProperties)
+	
+	If sys(2)=17
+		Do liWorker.$run() Returns lbRunning     ;; main thread     icOAUTH2authCode
+	Else
+		Do liWorker.$start() Returns lbRunning     ;; background thread    icOAUTH2authCode
+	End If
+	
+	If ioMessage.$errorcode<>0
+		Calculate inValidationCode as ioMessage.$errorcode
+	End If
+	If ioMessage.$errortext<>''
+		Calculate icValidationMessage as ioMessage.$errortext
+	End If
+	
+Else
+	Calculate icValidationMessage as 'email worker has not been initialised using $prepareServer method, or there are errors with the configuration'
+End If

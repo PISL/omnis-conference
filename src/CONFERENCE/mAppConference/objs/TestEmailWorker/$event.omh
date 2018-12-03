@@ -1,0 +1,31 @@
+Begin reversible block
+	Do $DefineList(trGroupOrg,'infra.tentGroupOrganisations')
+	Do trGroupOrg.$fetch_("where GO_NAME_SHORT = 'OmnisWorld' ")
+End reversible block
+
+Calculate lcTextForEmail as 'Test message from CONFERENCE console'
+Calculate lcTo as 'rob@omnisworld.org'
+Calculate lcSubject as 'Conference console - SMTP direct'
+
+Do $SendEmail(lcTo,lcSubject,lcTextForEmail,#NULL,#NULL,#NULL)
+
+Do loEmailWorker.$initialiseServer('SMTPW_REGN') Returns lbOK
+If lbOK
+	Calculate lcSubject as 'Conference console - SMTP worker'
+	Do loEmailWorker.$setCallback($cinst,'$emailResult')
+	
+	;  message content
+	Do loEmailWorker.$initMessageRow(lrContent)
+	Calculate lrContent.char as lcTextForEmail
+	Do loEmailWorker.$messagePart(lrContent)
+	
+	Do loEmailWorker.$sendMessage(lcTo,lcSubject) Returns lnEmailStatus
+	;  If lnEmailStatus<0
+	;  something went wrong
+	;  Calculate icDisplayMessage as 'Registration submitted but something went wrong with email confirmation.'
+	;  Else
+	;  Calculate icDisplayMessage as 'Registration complete.  You will receive a confirmation email shortly.'
+	;  End If
+Else
+	OK message Email configuration incomplete {[loEmailWorker.icValidationMessage]}
+End If

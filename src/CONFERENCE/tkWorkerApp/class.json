@@ -1,0 +1,29 @@
+{
+	"classtype": "kTask",
+	"internalversion": 26,
+	"superclass": "infra.tkWorker",
+	"tvardefs": [
+
+	],
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2018-09-11 14:18:12",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2018-11-08 08:43:09",
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

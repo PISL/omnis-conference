@@ -1,0 +1,71 @@
+On evClick
+	;  Breakpoint
+	;  1. pTo     ;; Field ref - char or list
+	;  2. pSubj     ;; char(255)
+	;  3. pBody     ;; char(10,000,000)
+	;  4. pCC     ;; Field ref - char or list
+	;  5. pBCC     ;; Field ref - char or list
+	;  6. pEnclosure     ;; Field ref - list, 2 cols: filename , full file path
+	;  7. pHTML     ;; char(10,000,000)
+	;  8. pSendAsync     ;; boolean, default kTrue
+	;  9. pVhostRow     ;; row, optional, used when called from $ServerMessage
+	;  10. pbLogProtocolExchange
+	;  11. pFromAddress     ;; Field ref - char
+	;  12. pFromName     ;; Field ref - char
+	
+	Calculate lcSubject as con('Request for travel information to ',ilSearch1.CF_TITLE)
+	Calculate lcFromAddress as irEmailTravelFromAddress.RFO_DESC
+	Calculate lcFromName as irEmailTravelFromName.RFO_DESC
+	;  Calculate lcTravelLink as con('omnisworld.onlineapps.uk.com/travelinfo.htm?id=',irCurrentRecord.DG_SEQ,'&name=',irCurrentRecord.PSN_SURNAME)
+	Do method generateTravelLink (ilDisplayRecords) Returns icTravelLink
+	Calculate icDisplayMessage as icTravelLink     ;; so user can copy/paste link if desired
+	;  parse the content of irEmailTravelMessage.RFO_CHAR to inject data values
+	Calculate lcTextToParse as irEmailTravelMessage.RFO_CHAR
+	
+	While lcTextToParse<>''
+		Calculate lcChunk as ''
+		Calculate lcExpression as ''
+		
+		If pos('[[',lcTextToParse)
+			Calculate lcChunk as mid(lcTextToParse,1,pos('[[',lcTextToParse)-1)
+			Calculate lcTextToParse as mid(lcTextToParse,pos('[[',lcTextToParse),kFetchAll)
+			Calculate lcExpression as mid(lcTextToParse,3,pos(']]',lcTextToParse)-1-2)
+			Calculate lcTextToParse as mid(lcTextToParse,pos(']]',lcTextToParse)+2,kFetchAll)
+		Else
+			Calculate lcChunk as lcTextToParse
+			Calculate lcTextToParse as ''
+		End If
+		
+		If lcExpression<>''
+			Test for valid calculation {[lcExpression]}
+			If flag true
+				Calculate lcMessage as con(lcMessage,lcChunk,eval(lcExpression))
+			Else
+				Calculate lcMessage as con(lcMessage,lcChunk,'<missing value>')
+			End If
+		Else
+			Calculate lcMessage as con(lcMessage,lcChunk)
+		End If
+	End While
+	
+	Calculate ibSendEmailAsWorker as kTrue
+	;  Calculate icWorkerAction as 'EMAIL_TRAVEL'     ;; $emailCompleted uses this to determine what action to take
+	
+	;  store the worker object attributes so user can drift to other records and correct record is updated when sent
+	Calculate irEmailWorker.instruction as 'EMAIL_TRAVEL'
+	Calculate irEmailWorker.DG_SEQ as irCurrentRecord.DG_SEQ
+	Calculate irEmailWorker.PSN_EMAIL as irCurrentRecord.PSN_EMAIL
+	Calculate irEmailWorker.PSN_SURNAME as irCurrentRecord.PSN_SURNAME
+	Calculate irEmailWorker.EO_EMAIL as #NULL
+	
+	Do $cinst.$emailInitialise()
+	
+	Do $cinst.$clientcommand("openpush",row())     ;; the worker will call back to $emailCompleted which will "push" the results to the client
+	Calculate icPushInstruction as "REFRESH"
+	
+	Calculate lcTo as irCurrentRecord.PSN_EMAIL
+	;  Calculate lcTo as 'robertmostyn99@gmail.com'     ;; debugging override
+	Do $cinst.$emailSend(lcTo,lcCC,,lcSubject,lcMessage)
+	
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

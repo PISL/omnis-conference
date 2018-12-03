@@ -1,0 +1,48 @@
+;  this form resides in CORE library at the moment and therefore is limited to user access only
+;  as CORE library is res;onsible for database access and security in general
+
+;  Enter your initialization code here
+;  trGroupOrg and tlConferences have been initialised in the task
+Calculate $cinst.$objs.PagedPane.$currentpage as cnPageLogin     ;; login
+
+If tlOpenConferences.$linecount=1
+	Calculate trCurrentConference as tlOpenConferences.1
+Else If tlOpenConferences.$line>0
+	Calculate trCurrentConference as tlOpenConferences
+End If
+Calculate irCompany as trGroupOrg
+
+Do $DefineList(irDelegate,'tDelegates')
+Do irDelegate.$AddLinkedCols('PSN_SURNAME,PSN_FIRST_NAME,PSN_EMAIL')
+Do irDelegate.$addDisplayName()
+
+Do ioArrangements.$fetchForConference(trCurrentConference.CF_SEQ) Returns ilArrangements
+Calculate ilArrangements.$smartlist as kTrue
+Do ilArrangements.$cols.$findname('DisplayName') Returns liColRef
+Calculate $cinst.$objs.PagedPane.$objs.ilArrangements.$listcolumn as liColRef.$ident
+
+Do $DefineList(irTestTaken,'tTestTaken')
+Do $DefineList(irAnswer,'tTestTakenAnswers')
+Calculate irAnswerOrig as irAnswer
+
+Do $DefineList(ilQuestions,'tTestQuestions')
+Do ilQuestions.$cols.$add(irAnswer)
+Calculate irQuestion as ilQuestions
+
+Calculate ilConferences as tlOpenConferences
+If ilConferences.$linecount>0
+	;  we could use trCurrentConference to set default line
+	Calculate ilConferences.$line as 1
+End If
+
+Calculate icFormHeading as con('Do your online tests here.')
+Calculate inFilterTests as 0
+
+Do method TranslateText
+
+;  do not call $behaviour here because objects on js page to not yet exist
+Calculate incPageLogin as cnPageLogin     ;; because $behaviour cannot refer to class variables
+
+Do method ShowArrangements
+
+Do $cinst.$behaviour()

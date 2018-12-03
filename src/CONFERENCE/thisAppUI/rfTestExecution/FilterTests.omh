@@ -1,0 +1,12 @@
+Do ilTestsAll.$unfilter(0)
+If inFilterTests=0
+	;  leave unfiltered
+Else If inFilterTests=1     ;; not taken
+	Do ilTestsAll.$filter(isnull($ref.TTK_STATUS))
+Else If inFilterTests=2     ;; partially done
+	Do ilTestsAll.$filter(pos('WIP',$ref.TTK_STATUS)>0)
+Else If inFilterTests=3     ;; complete
+	Do ilTestsAll.$filter($ref.TTK_STATUS='COMPLETE')
+End If
+Calculate ilTestsAll.$line as 0
+Calculate ilArrangements.$line as 0

@@ -1,0 +1,53 @@
+{
+	"classtype": "kTable",
+	"internalversion": 31,
+	"superclass": "infra.tMaster",
+	"designtaskname": "Startup_Task",
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "icBiasTopicOrSpeaker",
+			"order": 3,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 1,
+			"initval": "'T'",
+			"desc": "T for Topic, S for Speaker"
+		},
+		{
+			"name": "___ROW1",
+			"order": 1,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "___ROW2",
+			"order": 2,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2017-10-30 11:44:14",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2018-10-19 12:56:18",
+		"showascheckedout": false,
+		"sqlclassname": "sArrangements",
+		"userinfo": "",
+		"version": "2"
+	},
+	"inheritedproperties": [
+		"designtaskname",
+		"componenticon"
+	]
+}

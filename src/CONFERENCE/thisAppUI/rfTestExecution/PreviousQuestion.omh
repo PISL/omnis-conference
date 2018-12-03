@@ -1,0 +1,12 @@
+;  record any answer provided
+Do method SaveAnswer
+
+;  now move on to previous question
+Calculate icDisplayMessage as ''
+If ilQuestions.$line>1
+	Calculate ilQuestions.$line as ilQuestions.$line-1
+Else
+	Calculate icDisplayMessage as 'beginning of test'
+End If
+
+Do method PresentQuestionAndAnswer

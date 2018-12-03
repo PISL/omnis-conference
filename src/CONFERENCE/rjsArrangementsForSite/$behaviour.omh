@@ -1,0 +1,2 @@
+Calculate $cinst.$objs.label_Extras.$visible as (inDG_OCCUPANCY=ikOccupancySingle|inDG_OCCUPANCY=ikOccupancySpeaker)
+Calculate $cinst.$objs.rg_inExtras.$visible as (inDG_OCCUPANCY=ikOccupancySingle|inDG_OCCUPANCY=ikOccupancySpeaker)

@@ -1,0 +1,4 @@
+;  pcMultiPart     ;; The type of multi𯿿-𯿿part body part being created e.g. mixed
+;  vPart     ;; Either an integer body part id for a previously created body part in the 𯿿EMAILMessage object or a single column list of integer body part ids for𯿿previously created body parts
+;  pnPart2     ;; An integer body part id for a previously created body part in the𯿿EMAILMessage
+Do ioMessage.$createbodypartfromparts(pcMultiPart,vPart,pnPart2) Returns inMessageId

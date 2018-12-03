@@ -1,0 +1,5 @@
+Calculate $cinst.$objs.day1.$textcolor as pick(pnDayNo=1,kWhite,lnHighlight)
+Calculate $cinst.$objs.day2.$textcolor as pick(pnDayNo=2,kWhite,lnHighlight)
+Calculate $cinst.$objs.day3.$textcolor as pick(pnDayNo=3,kWhite,lnHighlight)
+Calculate $cinst.$objs.day4.$textcolor as pick(pnDayNo=4,kWhite,lnHighlight)
+Calculate $cinst.$objs.day5.$textcolor as pick(pnDayNo=5,kWhite,lnHighlight)

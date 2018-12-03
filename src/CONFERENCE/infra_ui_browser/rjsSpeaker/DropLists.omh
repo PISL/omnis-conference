@@ -1,0 +1,3 @@
+;  Do ilPersons.$search($ref.PSN_SEQ=irCurrentRecord.DG_PSN_REF,1,0,0,0)
+Do ilStatus.$search($ref.RFO_VALUE=irCurrentRecord.DG_STATUS,1,0,0,0)
+Do ilOccupancy.$search($ref.RFO_VALUE=irCurrentRecord.DG_OCCUPANCY,1,0,0,0)

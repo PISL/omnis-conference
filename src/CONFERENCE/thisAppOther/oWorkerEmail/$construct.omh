@@ -1,0 +1,7 @@
+Do ilHeaders.$cols.$add('name',kCharacter,kSimplechar,100)
+Do ilHeaders.$cols.$add('value',kCharacter,kSimplechar,255)
+
+Do ilMessageParts.$cols.$add('number',kInteger,k64bitint)
+
+Do ilProperties.$cols.$add('name',kCharacter,kSimplechar,100)
+Do ilProperties.$cols.$add('value',kCharacter,kSimplechar,255)

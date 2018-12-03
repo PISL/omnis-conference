@@ -1,0 +1,8 @@
+
+If icPushInstruction="SHOWPDF"     ;; if kTrue then the pdf will have been picked up and emailed
+	Do $cinst.$clientcommand("showpdf",pRow)
+Else     ;; one other option: REFRESH
+	Do $cinst.$updateDisplay(pRow)
+End If
+Calculate icPushInstruction as ""
+Do $cinst.$clientcommand("closepush",row())

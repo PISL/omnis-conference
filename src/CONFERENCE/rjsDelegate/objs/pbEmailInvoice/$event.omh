@@ -1,0 +1,5 @@
+On evClick
+	Calculate icPushInstruction as "REFRESH"
+	Do method $sendInvoiceToCustomer ('EMAIL_INVOICE')
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

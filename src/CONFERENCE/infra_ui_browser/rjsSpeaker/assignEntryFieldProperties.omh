@@ -1,0 +1,45 @@
+If icMode<>''
+	Calculate lnlinestyle as 2
+	Calculate lrFieldAttributes as OJSON.$jsontolistorrow(trFormColours.FIELDCOLOURS)
+	Calculate lnbordercolour as eval(lrFieldAttributes.mandatory)
+	Calculate lneffect as kJSborderPlain
+	Calculate lnEnterable as eval(lrFieldAttributes.enterable)
+	Calculate lnUnique as eval(lrFieldAttributes.unique)
+End If
+
+If inCurrentTab=cnTabDelegate
+	;  set attributes for Unique and Mandatory fields
+	Calculate $cinst.$objs.DG_PSN_REF.$linestyle as lnlinestyle
+	Calculate $cinst.$objs.DG_PSN_REF.$bordercolor as lnbordercolour
+	Calculate $cinst.$objs.DG_PSN_REF.$effect as lneffect
+	Calculate $cinst.$objs.DG_PSN_REF.$backcolor as lnUnique
+	
+	Calculate $cinst.$objs.DG_REG_DATE.$linestyle as lnlinestyle
+	Calculate $cinst.$objs.DG_REG_DATE.$bordercolor as lnbordercolour
+	Calculate $cinst.$objs.DG_REG_DATE.$effect as lneffect
+	Calculate $cinst.$objs.DG_REG_DATE.$backcolor as lnEnterable
+	
+	;  now set Enterable on the remainder
+	Calculate $cinst.$objs.DG_OCCUPANCY.$backcolor as lnEnterable
+	Calculate $cinst.$objs.DG_INT_PRODCODE.$backcolor as lnEnterable
+	Calculate $cinst.$objs.DG_COMPANY_NAME.$backcolor as lnEnterable
+	Calculate $cinst.$objs.DG_RATE.$backcolor as lnEnterable
+	
+	Calculate $cinst.$objs.DG_AMOUNT_DUE.$backcolor as lnEnterable
+	Calculate $cinst.$objs.DG_MEMBERSHIP_DUE.$backcolor as lnEnterable
+	Calculate $cinst.$objs.DG_GROUP.$backcolor as lnEnterable
+	Calculate $cinst.$objs.DG_ROOM_ASSIGNMENT.$backcolor as lnEnterable
+	Calculate $cinst.$objs.DG_STATUS.$backcolor as lnEnterable
+	
+	Calculate $cinst.$objs.DG_COMMENT.$backcolor as lnEnterable
+	
+Else If inCurrentTab=cnTabTopics
+	Calculate $cinst.$objs.PagedPane.$objs.PX_ROLE.$bordercolor as lnbordercolour
+	Calculate $cinst.$objs.PagedPane.$objs.PX_ROLE.$backcolor as lnEnterable
+	Calculate $cinst.$objs.PagedPane.$objs.PX_NAME.$backcolor as lnEnterable     ;; may be invisible
+	
+	Calculate $cinst.$objs.PagedPane.$objs.PX_INT_PRODCODE.$backcolor as lnEnterable
+	
+	Calculate $cinst.$objs.PagedPane.$objs.DR_REQUEST.$backcolor as lnEnterable
+	
+End If

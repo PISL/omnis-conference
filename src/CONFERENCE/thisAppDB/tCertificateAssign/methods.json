@@ -1,0 +1,137 @@
+[
+	{
+		"name": "$construct",
+		"ident": 0,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$validation",
+		"ident": 3,
+		"order": 4,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lcMessage",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 255
+			}
+		]
+	},
+	{
+		"name": "$Links",
+		"ident": 5,
+		"order": 9,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "llLinks",
+				"order": 1,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lrCertificate",
+				"order": 4,
+				"type": "kRow",
+				"subtype": "sCertificate",
+				"sublen": 0
+			},
+			{
+				"name": "lrConference",
+				"order": 3,
+				"type": "kRow",
+				"subtype": "sConference",
+				"sublen": 0
+			},
+			{
+				"name": "lrCustomer",
+				"order": 7,
+				"type": "kRow",
+				"subtype": "infra.sentExtOrganisations",
+				"sublen": 0
+			},
+			{
+				"name": "lrDelegate",
+				"order": 5,
+				"type": "kRow",
+				"subtype": "sDelegates",
+				"sublen": 0
+			},
+			{
+				"name": "lrGroupOrg",
+				"order": 2,
+				"type": "kRow",
+				"subtype": "infra.sentGroupOrganisations",
+				"sublen": 0
+			},
+			{
+				"name": "lrPerson",
+				"order": 6,
+				"type": "kRow",
+				"subtype": "sPerson",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$ForeignKeys",
+		"ident": 4,
+		"order": 10,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "llForeignKeyList",
+				"order": 1,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lrCertificate",
+				"order": 2,
+				"type": "kRow",
+				"subtype": "sCertificate",
+				"sublen": 0
+			},
+			{
+				"name": "lrDelegate",
+				"order": 3,
+				"type": "kRow",
+				"subtype": "sDelegates",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$displayName",
+		"ident": 2,
+		"order": 12,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "liColRef",
+				"order": 1,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0
+			}
+		]
+	}
+]

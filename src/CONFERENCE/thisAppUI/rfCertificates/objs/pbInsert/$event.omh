@@ -1,0 +1,23 @@
+On evClick
+	Calculate icDisplayMessage as ''
+	Do method ClearWorkArea
+	
+	If inCurrentTab=cnTabCertificate
+		Calculate icMode as 'IC'     ;; insert certificate, tab 1
+		Calculate irCurrentRecord.CRT_CF_REF as ilSearch1.CF_SEQ
+		
+	Else If inCurrentTab=cnTabComments
+		Calculate icMode as 'IC'     ;; insert certificate, tab 2
+		Calculate irCurrentRecord.CRT_CF_REF as ilSearch1.CF_SEQ
+		
+		Calculate inCurrentTab as cnTabCertificate
+		Calculate $cinst.$objs.TabControl_CRT.$currentpage as inCurrentTab
+		Calculate $cinst.$objs.PagedPane.$currentpage as inCurrentTab
+		
+	Else If inCurrentTab=cnTabAwardedTo
+		Calculate icMode as 'IAW'     ;; insert Awardee
+		Do irAwardee.$assignrow(ilDelegates,kTrue)     ;; to get PSN_NAME etc.  The sCertificateAssign columns will be empty
+	End If
+	
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

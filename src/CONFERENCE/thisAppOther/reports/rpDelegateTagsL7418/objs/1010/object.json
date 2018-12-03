@@ -1,0 +1,24 @@
+{
+	"ident": 1010,
+	"order": 2,
+	"objtype": "kRect",
+	"properties": {
+		"backcolor": "kColorBackFill",
+		"backpattern": 0,
+		"bordercolor": "RGB(0,0,0)",
+		"desgroup": 0,
+		"deslock": false,
+		"fieldstyle": "",
+		"floating": true,
+		"forecolor": "kRed",
+		"height": 0.846,
+		"left": 0.165,
+		"lineno": 10,
+		"lineoffset": 0.14,
+		"linestyle": 1,
+		"printontop": false,
+		"userinfo": "",
+		"vertextend": false,
+		"width": 8.044
+	}
+}

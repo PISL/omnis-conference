@@ -1,0 +1,21 @@
+Calculate icDisplayMessage as ''
+Do irTopic.$clear()
+Do ilTopics.$clear()
+Do ilDelegates.$clear()
+Do ilMembership.$clear()
+Calculate irCurrentRecord as ilDisplayRecords
+
+Do irCurrentRecord.$fetch_pk()     ;; re-read from db - multi user application
+
+Do ioTopicPerson.$fetchUsingPerson(irCurrentRecord.PSN_SEQ) Returns llJoined
+If ioTopicPerson.irErrorSQL.NativeErrorText<>''
+	Calculate icDisplayMessage as ilTopics.irErrorSQL.NativeErrorText
+End If
+Do ilTopics.$merge(llJoined,kTrue)
+Do ilTopics.$sort($ref.TPC_TITLE,0)
+
+Do ilDelegates.$fetch_fk(irCurrentRecord.PSN_SEQ,'DG_PSN_REF')
+Do ilMembership.$fetch_fk(irCurrentRecord.PSN_SEQ)
+
+Do $cinst.$behaviour()
+Do $cinst.$redraw()

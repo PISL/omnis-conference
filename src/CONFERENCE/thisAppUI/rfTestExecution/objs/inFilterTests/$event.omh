@@ -1,0 +1,3 @@
+On evClick
+	Do method FilterTests
+	Do $cinst.$behaviour()

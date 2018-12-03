@@ -1,0 +1,23 @@
+{
+	"classtype": "kRemoteMenu",
+	"internalversion": 3,
+	"nextident": 1004,
+	"properties": {
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2017-10-30 11:44:12",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"enabled": true,
+		"external": false,
+		"moddate": "2017-03-09 10:33:20",
+		"showascheckedout": false,
+		"title": {
+			"type": 0,
+			"calc": "Topics"
+		},
+		"userinfo": "",
+		"version": "2"
+	}
+}

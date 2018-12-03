@@ -1,0 +1,9 @@
+If ilTestsAll.TST_ARR_REF>0
+	Do ilArrangements.$unfilter(0)     ;; undo all filters
+	Do ilArrangements.$filter($ref.ARR_SEQ=ilTestsAll.TST_ARR_REF)
+	If ilArrangements.$linecount>0
+		Calculate ilArrangements.$line as 1     ;; ilTestsAll
+	End If
+Else
+	Calculate ilArrangements.$line as 0
+End If

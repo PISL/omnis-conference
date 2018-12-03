@@ -1,0 +1,26 @@
+{
+	"ident": 1137,
+	"order": 23,
+	"objtype": "kBackComponent",
+	"componentlib": "StringTable",
+	"componentctrl": "String Label",
+	"properties": {
+		"::text": "conf loc 1",
+		"align": "kCenterJst",
+		"backcolor": "kColorWindow",
+		"backpattern": 1,
+		"fieldstyle": "",
+		"font": 3,
+		"fontsize": 8,
+		"fontstyle": "kPlain",
+		"forecolor": "kBlack",
+		"height": 0.422,
+		"left": 3.5,
+		"lineno": 5,
+		"lineoffset": 0.0,
+		"rowid": "",
+		"textcolor": "kColorWindowText",
+		"userinfo": "",
+		"width": 2.022
+	}
+}

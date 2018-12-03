@@ -1,0 +1,49 @@
+Do $cinst.$getBrowser()     ;; populate icPlatform used in TranslateText to decide on tab shortcuts
+Set reference irefContainer to $cinst.$container
+Do inherited
+Do method setTabColours
+
+;  Enter your initialization code here
+Do $DefineList(ilDisplayRecords,'tPerson')
+Do ilDisplayRecords.$cols.$add('DisplayName',kCharacter,kSimplechar,100)
+Do ilDisplayRecords.$AddFunction("concat(psn_surname,', ',psn_first_name)")
+Do ilDisplayRecords.$cols.$add('SortName',kCharacter,kSimplechar,100)
+Do ilDisplayRecords.$AddFunction("upper(concat(psn_surname,', ',psn_first_name))")
+Calculate irCurrentRecord as ilDisplayRecords
+
+Do $DefineList(ilTopicConferences,'tTopicConferenceLink')
+Do ilTopicConferences.$addLinkedCols('CF_TITLE,CF_DATE_FROM,CF_DATE_TO,CF_LANG')
+Do ilTopicConferences.$addLinkedCols('VEN_NAME,VEN_COUNTRY')
+Do ilTopicConferences.$cols.$findname('CF_TITLE') Returns liColRef
+Calculate $cinst.$objs.PagedPane_PERSON.$objs.PagedPane_TOPIC.$objs.ilTopicConferences.$listcolumn as liColRef.$ident
+
+Do method TranslateText     ;; call this here to get the translations before setting superclass labels/values
+
+Calculate icFormHeading as $cell(clLabels,'objName','PERSON_Heading','label')
+Calculate icFormIntro as $cell(clLabels,'objName','PERSON_Intro','label')
+
+Do method UserPermissions
+
+Do ioTopicPerson.$init(irTopic,#NULL,irLinkTP,ilTopics)
+;  Calculate ilTopics as irTopic
+Calculate ilAllTopics as irTopic
+Do ilAllTopics.$fetchOurTopics()
+
+Do ilTopics.$cols.$findname('TPC_TITLE') Returns liColRef
+Calculate $cinst.$objs.PagedPane_PERSON.$objs.ilTopics.$listcolumn as liColRef.$ident
+
+Do $DefineList(ilDelegates,'tDelegates')
+Do ilDelegates.$addLinkedCols('CF_TITLE,CF_DATE_FROM,CF_DATE_TO,VEN_NAME')
+
+Do $DefineList(ilMembership,'tMembership')
+
+
+Do method FetchRecords
+;  no drop lists needed for this small group of records
+Do $cinst.$superText(kTrue,'name search')
+Do $cinst.$superFoundList($cell(clLabels,'objName','disp_attendees','label'),'DisplayName')
+
+Do $cinst.$container().$initToolsMenu() Returns ilMenuCommands     ;; use defaults
+Do $cinst.$container().$setupToolsMenu('Person',ilMenuCommands)
+
+Do $cinst.$behaviour()

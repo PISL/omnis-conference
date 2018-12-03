@@ -1,0 +1,3 @@
+On evClick
+	Do method BeginTest
+	Do $cinst.$behaviour()

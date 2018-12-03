@@ -1,0 +1,17 @@
+
+;  called from tkWorkerApp.$pdfcomplete
+Switch prMessage.C1     ;; this tells the form what to do next
+	Case "EMAIL_INVOICE","EMAIL_CHASEPAY"
+		;  call the appropriate methof
+		Calculate iPdfFilePath as pcFilePath
+		Do method emailPDF (prMessage.C1)
+		
+	Case 'PDF_THANKS_DG','PDF_THANKS_SPK','PDF_THANKS_VIP'
+		;  call the appropriate methof
+		;  Calculate iPdfFilePath as pcFilePath
+		Do method emailPDF (prMessage.C1,pcFilePath,prMessage.C2)     ;; ipdfFilePath may get overwritten if sending a batch of emails
+		
+	Default
+		;  display the PDF
+		Do $cinst.$pushdata(row(pcPDFid))
+End Switch

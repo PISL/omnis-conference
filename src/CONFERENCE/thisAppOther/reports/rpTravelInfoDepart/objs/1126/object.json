@@ -1,0 +1,26 @@
+{
+	"ident": 1126,
+	"order": 8,
+	"objtype": "kBackComponent",
+	"componentlib": "StringTable",
+	"componentctrl": "String Label",
+	"properties": {
+		"::text": "dep.point",
+		"align": "kLeftJst",
+		"backcolor": "kColorWindow",
+		"backpattern": 1,
+		"fieldstyle": "",
+		"font": 5,
+		"fontsize": 8,
+		"fontstyle": "kPlain",
+		"forecolor": "kBlack",
+		"height": 0.422,
+		"left": 4.064,
+		"lineno": 5,
+		"lineoffset": 0.0,
+		"rowid": "TP_DEP_POINT",
+		"textcolor": "kColorWindowText",
+		"userinfo": "",
+		"width": 2.548
+	}
+}

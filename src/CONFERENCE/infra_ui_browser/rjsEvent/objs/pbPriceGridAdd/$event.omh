@@ -1,0 +1,4 @@
+On evClick
+	Do method PricingRuleAdd
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

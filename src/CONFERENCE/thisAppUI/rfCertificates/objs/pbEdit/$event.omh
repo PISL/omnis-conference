@@ -1,0 +1,24 @@
+On evClick
+	Calculate icDisplayMessage as ''
+	;  Calculate lcPrefix as $cinst.irCurrentRecord.icPrefix
+	;  Calculate lnKey as $cinst.irCurrentRecord.CRT_SEQ
+	
+	If inCurrentTab=cnTabCertificate
+		Calculate icMode as 'EC'     ;; details
+		
+	Else If inCurrentTab=cnTabComments
+		Calculate icMode as 'EC'     ;; criteria & rules
+		
+	Else If inCurrentTab=cnTabAwardedTo
+		Calculate icMode as 'EAW'     ;; awardee
+		
+	End If
+	
+	;  refresh record from db to ensure latest copy
+	Do irCurrentRecord.$fetch_pk()
+	Do irCurrentRecord.$DisplayName()
+	Calculate irOriginalRecord as irCurrentRecord
+	Do method DropLists
+	
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

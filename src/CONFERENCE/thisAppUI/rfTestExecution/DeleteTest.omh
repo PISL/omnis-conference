@@ -1,0 +1,17 @@
+Do irTestTaken.$clear()
+Calculate irTestTaken.TTK_TST_REF as ilTestsAll.TST_SEQ
+Calculate irTestTaken.TTK_DG_REF as irDelegate.DG_SEQ
+Do irTestTaken.$fetch_ck() Returns lbOK
+If irTestTaken.TTK_SEQ>0
+	Do irAnswer.$delete_fk(irTestTaken.TTK_SEQ,'TTA_TTK_REF') Returns lbOK
+	If lbOK
+		Do irTestTaken.$delete_pk() Returns lbOK
+		If lbOK
+			Do method SuccessfulLogin
+		Else
+			Calculate icDisplayMessage as irTestTaken.irErrorSQL.NativeErrorText
+		End If
+	Else
+		Calculate icDisplayMessage as irAnswer.irErrorSQL.NativeErrorText
+	End If
+End If

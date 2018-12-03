@@ -1,0 +1,52 @@
+{
+	"classtype": "kTable",
+	"internalversion": 4,
+	"superclass": "infra.tMaster",
+	"designtaskname": "Startup_Task",
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "ibPSNcolsExist",
+			"order": 3,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0,
+			"initval": "#NULL"
+		},
+		{
+			"name": "___ROW1",
+			"order": 1,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "___ROW2",
+			"order": 2,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2017-10-30 11:44:14",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2017-10-30 16:25:28",
+		"showascheckedout": false,
+		"sqlclassname": "sCertificate",
+		"userinfo": "",
+		"version": "1.00"
+	},
+	"inheritedproperties": [
+		"designtaskname",
+		"componenticon"
+	]
+}

@@ -1,0 +1,14 @@
+
+If inCurrentTab=1
+	Do $cinst.$container().$adjustToolsMenu('Venue')
+	
+Else If inCurrentTab=2
+	Do $cinst.$container().$adjustToolsMenu('Event')
+	
+Else If inCurrentTab=3
+	Do $cinst.$container().$adjustToolsMenu('Person')
+	
+Else If inCurrentTab=4
+	Do $cinst.$container().$adjustToolsMenu('Reports')
+	
+End If

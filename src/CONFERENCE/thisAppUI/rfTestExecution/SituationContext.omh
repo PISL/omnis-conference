@@ -1,0 +1,53 @@
+If idtTestTime>tim('00:00')
+	Calculate ldtTimeNow as idtTestTime
+Else
+	Calculate ldtTimeNow as #T
+End If
+If idTestDate>dat('1 JAN 2010')
+	Calculate ldTestDate as idTestDate
+Else
+	Calculate ldTestDate as #D
+End If
+
+Calculate ibDateTimeFuture as ldTestDate<ilDates.ARR_DATE
+Calculate ibDateTimePast as ldTestDate>ilDates.ARR_DATE
+
+Calculate ibDelegateIsPresenter as kFalse
+Calculate ibTimePast as kFalse
+Calculate ibTimeNow as kFalse
+Calculate ibTimeFuture as kFalse
+Calculate ibDateToday as ilArrangements.ARR_DATE=ldTestDate
+Calculate ibMaxAttendeesReached as kFalse
+Calculate ibDelegateAlreadyBookedForSelectedTime as ilDelegateSessions.$line
+
+If ibDateToday&ilArrangements.$line>0
+	If ilArrangements.ARR_STARTTIME>tim('00:00')
+		Calculate ibTimePast as ilArrangements.ARR_STARTTIME<ldtTimeNow
+		Calculate ibTimeNow as abs(ddiff(kMinute,ilArrangements.ARR_STARTTIME,ldtTimeNow))<=20
+		Calculate ibTimeFuture as ilArrangements.ARR_STARTTIME>ldtTimeNow
+	Else
+		If pos('AM',upp(ilArrangements.ARR_SLOT))|pos('MORNING',upp(ilArrangements.ARR_SLOT))
+			Calculate ibTimePast as ldtTimeNow>ldtSessionStartAM
+			Calculate ibTimeNow as abs(ddiff(kMinute,ldtTimeNow,ldtSessionStartAM))<=20
+			Calculate ibTimeFuture as ldtTimeNow<ldtSessionStartAM
+		Else If pos('PM',upp(ilArrangements.ARR_SLOT))|pos('AFTERNOON',upp(ilArrangements.ARR_SLOT))
+			Calculate ibTimePast as ldtTimeNow>ldtSessionStartPM
+			Calculate ibTimeNow as abs(ddiff(kMinute,ldtTimeNow,ldtSessionStartPM))<=20
+			Calculate ibTimeFuture as ldtTimeNow<ldtSessionStartPM
+		Else If pos('EVE',upp(ilArrangements.ARR_SLOT))     ;; EVE or EVENING
+			Calculate ibTimePast as ldtTimeNow>ldtSessionStartEVE
+			Calculate ibTimeNow as abs(ddiff(kMinute,ldtTimeNow,ldtSessionStartEVE))<=20
+			Calculate ibTimeFuture as ldtTimeNow<ldtSessionStartEVE
+		End If
+	End If
+	If ibTimeNow
+		Calculate ibTimePast as kFalse
+		Calculate ibTimeFuture as kFalse
+	End If
+End If
+
+Calculate ibDelegateIsRegistered as ilArrangements.ARR_PSN_REF=irDelegate.DG_PSN_REF
+Calculate ibDelegateIsPresenter as ilArrangements.ARR_PSN_REF=irDelegate.DG_PSN_REF
+If isnull(ibDelegateIsPresenter)
+	Calculate ibDelegateIsPresenter as kFalse
+End If

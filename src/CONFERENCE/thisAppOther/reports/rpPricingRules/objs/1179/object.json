@@ -1,0 +1,29 @@
+{
+	"ident": 1179,
+	"order": 8,
+	"objtype": "kText",
+	"properties": {
+		"align": "kLeftJst",
+		"desgroup": 0,
+		"deslock": false,
+		"fieldstyle": "reportSmall",
+		"floating": false,
+		"font": 6,
+		"fontextra": 0,
+		"fontsize": 10,
+		"fontstyle": "kPlain",
+		"height": 0.175,
+		"left": 0.198,
+		"lineno": 4,
+		"lineoffset": 0.0,
+		"printontop": false,
+		"text": {
+			"type": 14,
+			"calc": "Rule name"
+		},
+		"textcolor": "RGB(8,0,0)",
+		"userinfo": "",
+		"vertextend": false,
+		"width": 1.803
+	}
+}

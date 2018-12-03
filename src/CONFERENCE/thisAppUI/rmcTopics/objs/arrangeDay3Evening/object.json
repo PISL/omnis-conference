@@ -1,0 +1,16 @@
+{
+	"ident": 1019,
+	"order": 14,
+	"properties": {
+		"cascade": "",
+		"checked": false,
+		"commandid": 1019,
+		"enabled": true,
+		"iconid": 0,
+		"text": {
+			"type": 0,
+			"calc": "Arrange day 3 evening"
+		},
+		"userinfo": ""
+	}
+}

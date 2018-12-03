@@ -1,0 +1,33 @@
+;  these rules copied from $behaviour
+If inCurrentTab=cnConfInfo|inCurrentTab=cnConfPrices|inCurrentTab=cnConfTerms
+	If not(irUserRights.canUpdate&icMode=''&irCurrentRecord.CF_SEQ>0)
+		Quit method
+	End If
+	
+Else If inCurrentTab=cnConfStats
+	Quit method
+	
+Else If inCurrentTab=cnConfPriceRules
+	If not(irUserRights.canUpdatePriceRule&irCurrentRecord.CF_SEQ>0&(icMode=''|icMode='EP'))
+		Quit method
+	End If
+	
+End If
+
+Calculate icDisplayMessage as ''
+If inCurrentTab=4
+	Calculate icMode as 'ET'     ;; edit topic
+	Do irTopic.$fetch_pk()     ;; re-read from db
+Else If inCurrentTab=7     ;; new pricing
+	Calculate icMode as 'EP'     ;; edit pricing
+	Do ioResolve.$calculationText() Returns icDisplayMessage
+Else
+	Calculate icMode as 'EC'     ;; edit conference/event
+	
+	;  refresh record from db to ensure latest copy
+	Do irCurrentRecord.$fetch_pk()
+	Calculate irOriginalRecord as irCurrentRecord
+	Do method DropLists
+End If
+
+Do $cinst.$behaviour()

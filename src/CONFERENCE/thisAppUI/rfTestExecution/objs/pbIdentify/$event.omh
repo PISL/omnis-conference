@@ -1,0 +1,38 @@
+On evClick
+	Calculate icDisplayMessage as ''
+	Calculate icDGreference as replaceall(icDGreference,' ','')
+	Do $cinst.$validation() Returns lbProceed
+	If lbProceed
+		Do irDelegate.$clear() Returns lbOK
+		If mid(upp(icDGreference),1,2)='DG'     ;; this will be recorded in CBY & MBY columns
+			Calculate lcTemp as mid(icDGreference,3,9)     ;; extra spaces will be ignored
+			Do irDelegate.$fetchForConference(ilConferences.CF_SEQ,,con('DG_SEQ = ',lcTemp)) Returns lbOK
+		Else If isnumber(icDGreference)
+			Do irDelegate.$fetchForConference(ilConferences.CF_SEQ,,con('DG_SEQ = ',icDGreference)) Returns lbOK
+		End If
+		
+		If irDelegate.DG_SEQ>0
+			;  is there a match between DG reference and surname?
+			If upp(irDelegate.PSN_SURNAME)=icSurname
+				;  good
+				;  does the DG reference match the current Conference?
+				If irDelegate.DG_CF_REF=ilConferences.CF_SEQ
+					;  all is good
+					Do irDelegate.$DisplayName()
+					
+					Do method SuccessfulLogin
+					Calculate icDisplayMessage as con('Your DG reference identifies you with a particular course.',kCr,'Your course has a number of tests associated with it.',kCr,'You can do the tests using this page.')
+					
+					Calculate inCurrentPage as 2
+					Calculate $cinst.$objs.PagedPane.$currentpage as inCurrentPage
+				Else
+					Calculate icDisplayMessage as con('The delegate / surname combination does not match conference ',ilConferences.CF_TITLE)
+				End If
+			Else
+				Calculate icDisplayMessage as con('The delegate / surname combination does not match.')
+			End If
+		Else
+			Calculate icDisplayMessage as 'identification not verified'
+		End If
+	End If
+	Do $cinst.$behaviour()

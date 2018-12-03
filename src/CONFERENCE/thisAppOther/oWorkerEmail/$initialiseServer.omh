@@ -1,0 +1,166 @@
+Calculate icValidationMessage as ''
+Calculate inValidationCode as 0
+Calculate ibServerPrepared as kTrue
+
+Do toValues.$initOrg(pcServerId) Returns llDetails
+
+Do llDetails.$search($ref.RFO_VALUE='HOST',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icSMTPserver as llDetails.RFO_CHAR
+Else
+	Calculate icSMTPserver as ''
+	Calculate ibServerPrepared as kFalse
+	Calculate icValidationMessage as con(icValidationMessage,pick(icValidationMessage<>'','',', '),'HOST missing')
+End If
+
+;  The realm used for DIGEST𯿿-𯿿MD5 authentication
+Do llDetails.$search($ref.RFO_VALUE='REALM',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icRealm as llDetails.RFO_CHAR
+Else
+	Calculate icRealm as ''
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='USER_ID',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icUser as llDetails.RFO_CHAR
+Else
+	Calculate icUser as ''
+	Calculate ibServerPrepared as kFalse
+	Calculate icValidationMessage as con(icValidationMessage,pick(icValidationMessage<>'','',', '),'USER ID missing')
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='USER_PW',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icPassword as llDetails.RFO_CHAR
+Else
+	Calculate icPassword as ''
+	Calculate ibServerPrepared as kFalse
+	Calculate icValidationMessage as con(icValidationMessage,pick(icValidationMessage<>'','',', '),'PASSWORD missing')
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='AUTH_TYPE',1,0,0,0) Returns lbFound
+If lbFound
+	;  iAuthType=kOWEBsmtpAuthTypeNone
+	If upp(llDetails.RFO_CHAR)='CRAMMD5'|upp(llDetails.RFO_CHAR)='CRAM'
+		Calculate inAuthType as kOWEBsmtpAuthTypeCRAMMD5
+	Else If upp(llDetails.RFO_CHAR)='DIGESTMD5'|upp(llDetails.RFO_CHAR)='DIGEST'
+		Calculate inAuthType as kOWEBsmtpAuthTypeDIGESTMD5
+	Else If upp(llDetails.RFO_CHAR)='LOGIN'
+		Calculate inAuthType as kOWEBsmtpAuthTypeLOGIN
+	Else If upp(llDetails.RFO_CHAR)='NONE'
+		Calculate inAuthType as kOWEBsmtpAuthTypeNone
+	Else If upp(llDetails.RFO_CHAR)='NTLM'
+		Calculate inAuthType as kOWEBsmtpAuthTypeNTLM
+	Else If upp(llDetails.RFO_CHAR)='OAUTH2'
+		Calculate inAuthType as kOWEBsmtpAuthTypeOAUTH2
+	Else If upp(llDetails.RFO_CHAR)='PLAIN'
+		Calculate inAuthType as kOWEBsmtpAuthTypePLAIN
+	Else
+		Calculate inAuthType as kOWEBsmtpAuthTypeNone     ;; default
+	End If
+Else
+	Calculate inAuthType as kOWEBsmtpAuthTypeNone     ;; default
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+;  The domain used for NTLM authentication
+Do llDetails.$search($ref.RFO_VALUE='NTLM_DOMAIN',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icNTLMdomain as llDetails.RFO_CHAR
+Else
+	Calculate icNTLMdomain as ''
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='SECURE',1,0,0,0) Returns lbFound
+If lbFound
+	;  default     ;; iSecure=kOWEBsmtpSecureNotSecure
+	If upp(llDetails.RFO_CHAR)='NO'
+		Calculate inSecure as kOWEBsmtpSecureNotSecure
+	Else If upp(llDetails.RFO_CHAR)='SSL'
+		Calculate inSecure as kOWEBsmtpSecureSSL
+	Else If upp(llDetails.RFO_CHAR)='TLS'|upp(llDetails.RFO_CHAR)='STARTTLS'
+		Calculate inSecure as kOWEBsmtpSecureSTARTTLS
+	Else
+		Calculate inSecure as kOWEBsmtpSecureNotSecure
+	End If
+Else
+	Calculate inSecure as kOWEBsmtpSecureNotSecure
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='OAUTH2',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icOAUTH2authCode as llDetails.RFO_CHAR
+Else
+	Calculate icOAUTH2authCode as ''
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='EMAIL_FROM',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icFrom as llDetails.RFO_CHAR
+Else
+	Calculate icFrom as ''
+	Calculate ibServerPrepared as kFalse
+	Calculate icValidationMessage as con(icValidationMessage,pick(icValidationMessage<>'','',', '),'EMAIL FROM missing')
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='EMAIL_FROM_NAME',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icFromName as llDetails.RFO_CHAR
+Else
+	Calculate icFromName as ''
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='EMAIL_TO',1,0,0,0) Returns lbFound
+If lbFound
+	;  applies to automated workflow message rather than messages to clients
+	Calculate icEmailTO as llDetails.RFO_CHAR
+Else
+	Calculate icEmailTO as ''
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='EMAIL_CC',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icEmailCC as llDetails.RFO_CHAR
+Else
+	Calculate icEmailCC as ''
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='EMAIL_BCC',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate icEmailBCC as llDetails.RFO_CHAR
+Else
+	Calculate icEmailBCC as ''
+	;  Calculate ibServerPrepared as kFalse
+End If
+
+Do llDetails.$search($ref.RFO_VALUE='DEBUGLOG',1,0,0,0) Returns lbFound
+If lbFound
+	Calculate ibDebugLog as kTrue
+Else
+	Calculate ibDebugLog as kFalse
+End If
+
+;  lProps     ;; ilProperties
+;  A list with 2 character columns (name and value). A list of properties to 𯿿be set for the JavaMail SMTP
+;  session object (see docs for package 𯿿com.sun.mail.smtp 𯿿at 𯿿https://javamail.java.net/nonav/docs/api𯿿/𯿿).
+;  The 𯿿SMTPClientWorker sets these properties as a final step, meaning that
+;  this can be used to override properties set by the worker, or to set other 𯿿properties.
+
+
+If not(ibServerPrepared)
+	Calculate icValidationMessage as 'email worker has not been initialised using $prepareServer method, or there are errors with the configuration'
+	Quit method kFalse
+End If
+
+Do ioMessage.$deleteaallbodyparts()
+Do ilMessageParts.$clear()
+
+Quit method kTrue

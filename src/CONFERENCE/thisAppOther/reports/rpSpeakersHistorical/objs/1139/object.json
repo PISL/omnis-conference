@@ -1,0 +1,25 @@
+{
+	"ident": 1139,
+	"order": 9,
+	"objtype": "kLabel",
+	"properties": {
+		"align": "kCenterJst",
+		"desgroup": 0,
+		"deslock": false,
+		"fieldstyle": "",
+		"floating": false,
+		"font": 4,
+		"fontextra": 0,
+		"fontsize": 9,
+		"fontstyle": "kPlain",
+		"height": -1,
+		"left": 15.25,
+		"lineno": 4,
+		"lineoffset": 0.0,
+		"printontop": false,
+		"text": "attendance",
+		"textcolor": "RGB(8,0,0)",
+		"userinfo": "",
+		"width": 2.052
+	}
+}

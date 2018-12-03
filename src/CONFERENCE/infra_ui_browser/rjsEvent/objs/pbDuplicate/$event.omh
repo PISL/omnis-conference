@@ -1,0 +1,24 @@
+On evClick
+	Calculate icDisplayMessage as ''
+	Calculate icMode as 'IC'     ;; insert conference/event
+	
+	;  Do irCurrentRecord.$clear()
+	Calculate inCF_SEQbeingDuplicated as irCurrentRecord.CF_SEQ
+	Calculate irCurrentRecord.CF_SEQ as #NULL
+	Do irCurrentRecord.$defaults()
+	
+	Do $cinst.$clientNoYesMsg(con($cell(clLabels,'objName','disp_dupArrangements','label'),'?  ',$cell(clLabels,'objName','disp_confirm','label')),$cell(clLabels,'objName','disp_respond','label'),'$duplicateCFarr','$duplicateCFnarr')
+	;  duplicating a conference also means duplicating the following:
+	;  confPricing rules
+	;  and possibly the arrangements
+	;  these extra tables will be handled in $saveData method
+	
+	;  so leave ilArrangements in memory
+	;  and  ilPricingGrid
+	
+	Calculate inCurrentTab as 1
+	Calculate $cinst.$objs.TabControl_CF.$currenttab as inCurrentTab
+	Calculate $cinst.$objs.PagedPane.$currentpage as inCurrentTab
+	
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

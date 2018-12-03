@@ -1,0 +1,5 @@
+Calculate icMode as 'IP'     ;; insert pricing rule - although we are actually editing the whole list actually
+Do ilPricingGrid.$add()
+Calculate ilPricingGrid.$line as ilPricingGrid.$linecount
+Calculate ilPricingGrid.CFP_ORDER as ilPricingGrid.$linecount
+Calculate ilPricingGrid.CFP_ACTIVE as 1

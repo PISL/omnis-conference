@@ -1,0 +1,34 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 3,
+	"superclass": ".OWEB.Web Worker Objects\\SMTPClientWorker",
+	"designtaskname": "Startup_Task",
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "iCallingInst",
+			"order": 1,
+			"type": "kItemref",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2017-10-30 11:44:08",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2017-03-15 12:48:43",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": "2"
+	}
+}

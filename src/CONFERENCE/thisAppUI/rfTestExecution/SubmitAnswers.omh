@@ -1,0 +1,55 @@
+Calculate ilQuestions.$line as 0
+While $Loop(ilQuestions)
+	;  Calculate irAnswer as ilQuestions.irAnswer     ;; this destroys irAnswer's table instance
+	Do irAnswer.$assignrow(ilQuestions.irAnswer)
+	Calculate lbOK as kFalse
+	If irAnswer.TTA_SEQ>0
+		Do irAnswer.$update() Returns lbOK
+	Else
+		If irAnswer.TTA_ANSWER<>''
+			Do irAnswer.$insert() Returns lbOK
+		End If
+	End If
+	If lbOK
+		Calculate ilQuestions.irAnswer as irAnswer
+		If pos('|',ilQuestions.TSQ_CORRECT)
+			;  examinar has allowed a mixture of possible answers
+			;  this might occur on a question with multiple valid responses
+			Calculate lcTemp as ilQuestions.TSQ_CORRECT
+			While lcTemp<>''
+				Calculate lcToken as strtok(nam(lcTemp),'|')
+				If lcToken<>''
+					If irAnswer.TTA_ANSWER=lcToken
+						Calculate lnScore as lnScore+1
+						Break to end of loop
+					End If
+				End If
+			End While
+		Else
+			If irAnswer.TTA_ANSWER=ilQuestions.TSQ_CORRECT
+				Calculate lnScore as lnScore+1
+			End If
+		End If
+	End If
+End While
+
+If isnull(irTestTaken.TTK_MINUTES)
+	Calculate irTestTaken.TTK_MINUTES as 0
+End If
+Calculate irTestTaken.TTK_MINUTES as irTestTaken.TTK_MINUTES+ddiff(kMinute,idtTestStart,#D)
+If pbPause
+	Calculate irTestTaken.TTK_STATUS as 'PAUSED'
+Else
+	Calculate irTestTaken.TTK_STATUS as 'COMPLETE'
+	Calculate irTestTaken.TTK_PERCENT as lnScore*100/ilQuestions.$linecount
+	Calculate irTestTaken.TTK_END as #D
+End If
+
+Do irTestTaken.$update()
+
+;  return user to Available Tests pane
+;  re-read info from db
+Do method SuccessfulLogin
+
+Calculate inCurrentPage as cnPageAvailableTests
+Calculate $cinst.$objs.PagedPane.$currentpage as inCurrentPage

@@ -1,0 +1,27 @@
+;  $completed(wResults) Method called when the request completes.wResults is a row containing the results of executing the request
+
+;  prResult.errorCode
+;  An integer indicating the error that has occurred. Zero means no 𯿿error occurred, and the email was successfully sent.
+
+;  prResult.errorInfo
+;  Error text𯿿that describes the error. Empty if no error occurred.
+
+;  prResult.log
+;  If the property $debuglog was set to kTrue before calling $init, this𯿿character column contains debugging information,
+;  including a log of 𯿿the interaction with the SMTP server.
+
+;  prResult.oauth2_authcodeurl
+;  Only applies when using OAUTH2 authentication managed by the 𯿿SMTPClientWorker, and when errorCode is
+;  kOWEBsmtpErrorOAUTH2authCodeRequired. The URL to which 𯿿the user needs to navigate in order to obtain an
+;  OAUTH2 authorisation code. See the section on OAUTH2 for more details.
+
+If prResult.errorCode<0
+	Do ioErrorCodes.$GetErrorDesc(prResult.errorCode) Returns lcRawMessage
+	Calculate icCompletionMessage as con('SMTP error ',prResult.errorCode,': ',lcRawMessage,kCr,kCr,prResult.errorInfo,kCr,kCr,prResult.log)
+Else
+	Calculate icCompletionMessage as 'message sent ok'
+End If
+
+If irefCallbackObject.[icCallbackMethod].$cando()
+	Do irefCallbackObject.[icCallbackMethod](icCompletionMessage)
+End If

@@ -1,0 +1,7 @@
+If ilSearch2.RFO_VALUE<>''&ilSearch2.RFO_VALUE<>'ALL'
+	Calculate lcStatusCriteria as con(" DG_STATUS = '",ilSearch2.RFO_VALUE,"' ")
+End If
+Do method fetchDisplayList (lcStatusCriteria)
+Calculate ilDisplayRecords.$line as 1
+Do method $displayListClick
+Do $cinst.$behaviour

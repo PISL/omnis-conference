@@ -1,0 +1,25 @@
+{
+	"ident": 1335,
+	"order": 44,
+	"objtype": "kLabel",
+	"properties": {
+		"align": "kRightJst",
+		"desgroup": 0,
+		"deslock": false,
+		"fieldstyle": "reportMedium",
+		"floating": false,
+		"font": 6,
+		"fontextra": 0,
+		"fontsize": 12,
+		"fontstyle": "kItalic",
+		"height": -1,
+		"left": 7.125,
+		"lineno": 20,
+		"lineoffset": 0.0,
+		"printontop": false,
+		"text": "sub total",
+		"textcolor": "kDarkGreen",
+		"userinfo": "",
+		"width": 2.548
+	}
+}

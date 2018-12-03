@@ -1,0 +1,41 @@
+Calculate icQuestionPrompt as con('Question ',ilQuestions.$line,' of ',ilQuestions.$linecount)
+Calculate irQuestion as ilQuestions
+Do ioArrangements.$prepareMultipleChoice('F',irQuestion) Returns ilMultipleChoice
+
+;  Calculate irAnswer as irQuestion.irAnswer
+Do irAnswer.$assignrow(ilQuestions.irAnswer)
+Calculate irAnswerOrig as irAnswer
+If irAnswer.TTA_ANSWER<>''
+	If mid(irQuestion.TSQ_FORMAT,1,3)='MC_'
+		Calculate lcTemp as irAnswer.TTA_ANSWER
+		While lcTemp<>''
+			Calculate lcSignal as strtok(nam(lcTemp),',')
+			Do ilMultipleChoice.$search($ref.signal=lcSignal,1,0,0,0) Returns lbFound
+			If lbFound
+				Calculate ilMultipleChoice.checked as kTrue
+			End If
+		End While
+		Calculate ilMultipleChoice.$line as 0
+	End If
+End If
+
+Calculate ibDisplayMC as mid(ilQuestions.TSQ_FORMAT,1,3)='MC_'
+Calculate ibDisplayTEXT as mid(ilQuestions.TSQ_FORMAT,1,4)='TEXT'
+Calculate ibDisplayKEYWORD as mid(ilQuestions.TSQ_FORMAT,1,3)='KW_'
+
+Calculate icResponseRule as ''
+If ilQuestions.TSQ_FORMAT='MC_1'
+	Calculate icResponseRule as 'Click 1 answer only'
+Else If ilQuestions.TSQ_FORMAT='MC_ANY'
+	Calculate icResponseRule as 'Click any correct answer'
+Else If ilQuestions.TSQ_FORMAT='MC_ALL'
+	Calculate icResponseRule as 'Click all answers that apply'
+Else If ilQuestions.TSQ_FORMAT='KW_1'
+	Calculate icResponseRule as 'We expect a single keyword'
+Else If ilQuestions.TSQ_FORMAT='KW_ANY'
+	Calculate icResponseRule as 'Any keyword will do'
+Else If ilQuestions.TSQ_FORMAT='KW_ALL'
+	Calculate icResponseRule as 'All keywords must be provided'
+Else If ilQuestions.TSQ_FORMAT='TEXT'
+	Calculate icResponseRule as 'Enter a modest textual answer'
+End If

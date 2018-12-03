@@ -1,0 +1,26 @@
+{
+	"ident": 1206,
+	"order": 112,
+	"objtype": "kBackComponent",
+	"componentlib": "StringTable",
+	"componentctrl": "String Label",
+	"properties": {
+		"::text": "WHOLE EVENT",
+		"align": "kLeftJst",
+		"backcolor": "kColorWindow",
+		"backpattern": 1,
+		"fieldstyle": "",
+		"font": 3,
+		"fontsize": 8,
+		"fontstyle": "kPlain",
+		"forecolor": "kBlack",
+		"height": 0.493,
+		"left": 1.095,
+		"lineno": 25,
+		"lineoffset": 0.0,
+		"rowid": "word_whole_event",
+		"textcolor": "kColorWindowText",
+		"userinfo": "",
+		"width": 2.54
+	}
+}

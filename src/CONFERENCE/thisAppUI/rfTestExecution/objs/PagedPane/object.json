@@ -1,0 +1,85 @@
+{
+	"ident": 1005,
+	"order": 1,
+	"objtype": "kPagedPane",
+	"properties": {
+		"alpha": 255,
+		"animatetransitions": false,
+		"autoscroll": false,
+		"backalpha": 255,
+		"backcolor": "RGB(238,238,255)",
+		"bordercolor": "kColorDefault",
+		"borderradius": "0",
+		"contextmenu": "",
+		"cssclassname": "",
+		"currentpage": 1,
+		"dataname": "",
+		"desgroup": 0,
+		"designactive": true,
+		"deslock": false,
+		"disablesystemfocus": true,
+		"effect": "kJSborderNone",
+		"enabled": true,
+		"events": "",
+		"linestyle": 1,
+		"objlink": 0,
+		"pagecount": 9,
+		"preventlayoutanimation": false,
+		"scrolltochangepage": false,
+		"tooltip": "",
+		"userinfo": "",
+		"visible": true
+	},
+	"screensizes": [
+		{
+			"name": "kSSZDesktop",
+			"left": 0,
+			"top": 0,
+			"width": 928,
+			"height": 725,
+			"edgefloat": "kEFposnClient",
+			"dragborder": false,
+			"errortextpos": "kJSErrorTextPosUnder"
+		},
+		{
+			"name": "kSSZjs320x480Portrait",
+			"left": 0,
+			"top": 0,
+			"width": 928,
+			"height": 725,
+			"edgefloat": "kEFnone",
+			"dragborder": false,
+			"errortextpos": "kJSErrorTextPosUnder"
+		},
+		{
+			"name": "kSSZjs320x480Landscape",
+			"left": 0,
+			"top": 0,
+			"width": 928,
+			"height": 725,
+			"edgefloat": "kEFnone",
+			"dragborder": false,
+			"errortextpos": "kJSErrorTextPosUnder"
+		},
+		{
+			"name": "kSSZjs768x1024Portrait",
+			"left": 0,
+			"top": 0,
+			"width": 768,
+			"height": 1008,
+			"edgefloat": "kEFnone",
+			"dragborder": false,
+			"errortextpos": "kJSErrorTextPosUnder"
+		},
+		{
+			"name": "kSSZjs768x1024Landscape",
+			"left": 0,
+			"top": 0,
+			"width": 800,
+			"height": 600,
+			"edgefloat": "kEFnone",
+			"dragborder": false,
+			"errortextpos": "kJSErrorTextPosUnder"
+		}
+	]
+}

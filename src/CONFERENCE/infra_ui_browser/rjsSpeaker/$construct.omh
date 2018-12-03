@@ -1,0 +1,69 @@
+;  Enter your initialization code here
+Do $cinst.$getBrowser()     ;; populate icPlatform used in TranslateText to decide on tab shortcuts
+Set reference irefContainer to $cinst.$container
+Do inherited
+Do method setTabColours
+
+Do $DefineList(ilDisplayRecords,'tDelegates')
+Do ilDisplayRecords.$AddLinkedCols("PSN_SURNAME,PSN_FIRST_NAME,PSN_COMPANY,PSN_EMAIL,PSN_SPEAKER_BIO")
+Do ilDisplayRecords.$cols.$add('SortName',kCharacter,kSimplechar,100)
+Do ilDisplayRecords.$AddFunction("upper(concat(psn_surname,', ',psn_first_name))")
+Do ilDisplayRecords.$cols.$add('DisplayName',kCharacter,kSimplechar,100)
+Do ilDisplayRecords.$AddFunction("concat(psn_surname,', ',psn_first_name)")
+
+Calculate irCurrentRecord as ilDisplayRecords
+
+Do $DefineList(ilTopics,'tTopics')
+Do ilTopics.$AddLinkedCols("PSN_SURNAME,PSN_FIRST_NAME,PSN_COMPANY,PSN_EMAIL",kTrue)
+Do ilTopics.$AddLinkedCols("TPF_SEQ,TPF_CF_REF,TPF_TPC_REF,TPF_STATUS",kTrue)
+Do ilTopics.$cols.$add('checked',kBoolean)
+
+Do ioTopicConference.$init(#NULL,#NULL,irLinkConference)
+
+Do $DefineList(ilArrangements,'tArrangements')
+Do ilArrangements.$AddLinkedCols('PSN_SURNAME,PSN_FIRST_NAME,PSN_COMPANY',kTrue)
+Do ilArrangements.$AddLinkedCols('TPC_TITLE,TPC_ABSTRACT,TPC_DURN_MINS,TPC_COMMENT,TPC_REQUESTS')
+Do ilArrangements.$addDisplayName()
+;  Do ilArrangements.$cols.$findname('DisplayName') Returns liColRef
+
+Do method fetchSearch1List     ;; Conferences  ilSearch1  line 1 current
+;  Do method fetchSearch2List
+
+Do method fetchDisplayList
+
+;  Do toValues.$initOrg('DG_STATUS') Returns ilStatus
+Calculate ilStatus as ilSearch2
+Do ilStatus.$cols.$findname('RFO_DESC') Returns liColRef
+Calculate $cinst.$objs.PagedPane.$objs.DG_STATUS.$listcolumn as liColRef.$ident
+
+Do method TranslateText     ;; call this here to get the translations before setting superclass labels/values
+
+Calculate icFormHeading as con($cell(clLabels,'objName','SPKR_Heading','label'))
+Calculate icFormIntro as $cell(clLabels,'objName','SPKR_Intro','label')
+
+Do method UserPermissions
+
+Do $DefineList(ilHistory,'tTopicPersonLink')
+Do $DefineList(ilTopicDetail,'tArrangements')
+;  hide tabs 2 & 3
+;  Calculate $cinst.$objs.TabControl_SPKR.$selectedtab as 3
+;  Calculate $cinst.$objs.TabControl_SPKR.$tabvisible as kFalse
+;  Breakpoint
+Calculate ilDisplayRecords.$line as 1
+Do method $displayListClick
+
+Do $cinst.$superSearchList1($cell(clLabels,'objName','sel_conference','label'),'CF_TITLE')     ;; ilSearch1
+;  Do $cinst.$superSearchList2($cell(clLabels,'objName','DG_STATUS','label'),'RFO_DESC')     ;; ilSearch2
+Do $cinst.$superFoundList($cell(clLabels,'objName','disp_values','label'),'DisplayName')     ;; ilDisplayRecords
+Calculate ilNewPerson as ilDisplayRecords
+Do ilNewPerson.$cols.$findname('DisplayName') Returns liColRef
+Calculate $cinst.$objs.PagedPane.$objs.ilNewPerson.$listcolumn as liColRef.$ident
+
+Calculate inCurrentTab as 1
+Calculate $cinst.$objs.TabControl_SPKR.$currenttab as inCurrentTab
+Calculate $cinst.$objs.PagedPane.$currentpage as inCurrentTab
+
+Do $cinst.$container().$initToolsMenu() Returns ilMenuCommands     ;; use defaults
+Do $cinst.$container().$setupToolsMenu('Speaker',ilMenuCommands)
+
+Do $cinst.$behaviour()

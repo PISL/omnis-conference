@@ -1,0 +1,9 @@
+;  irDelegate has been confirmed
+;  The delegate is connected to a Conference or Course
+;  The course can have a number of tests associated with it,
+;  either directly to the course (unlikely) or associated to Arrangements (sessions, webinars, lectures, topics etc).
+
+;  Determine all Tests irDelegate can undertake
+Do $DefineList(ilTestsAll,'tTest')
+Do ilTestsAll.$fetchAll(irDelegate.DG_SEQ)
+Calculate ilTestsAll.$smartlist as kTrue     ;; for filtering

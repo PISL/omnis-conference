@@ -1,0 +1,6 @@
+On evClick
+	If irRegistration.PSN_EMAIL=ilPersons.PSN_EMAIL
+		Calculate ilPersons.inExtras as inExtras
+	End If
+	Do method DisplayPrice
+	Do $cinst.$behaviour()

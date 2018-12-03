@@ -1,0 +1,4 @@
+On evClick
+	Do method DisplayTimezone
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

@@ -1,0 +1,5 @@
+Do toValues.$initOrg('DG_STATUS') Returns ilSearch2
+Do ilSearch2.$addbefore(1,#NULL,#NULL,'ALL','Any')
+Do ilSearch2.$cols.$findname('RFO_DESC') Returns liColRef
+Calculate $cinst.$objs.ilSearch2.$listcolumn as liColRef.$ident
+Calculate ilSearch2.$line as 1

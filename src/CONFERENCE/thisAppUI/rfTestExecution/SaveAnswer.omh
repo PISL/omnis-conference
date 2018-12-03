@@ -1,0 +1,42 @@
+If mid(irQuestion.TSQ_FORMAT,1,3)='MC_'
+	Calculate ilMultipleChoice.$line as 0
+	While $Loop(ilMultipleChoice)
+		If ilMultipleChoice.checked
+			Calculate lcAnswer as con(lcAnswer,pick(lcAnswer<>'','',','),ilMultipleChoice.signal)
+		End If
+	End While
+	If len(lcAnswer)=0&len(irAnswer.TTA_ANSWER)=0
+		;  ignore
+	Else
+		Calculate irAnswer.TTA_ANSWER as lcAnswer
+	End If
+Else
+	;  irAnswer.TTA_ANSWER has a textual response
+End If
+
+Do toStrings.$HasRowBeenModified(irAnswerOrig,irAnswer) Returns lbModified
+If lbModified
+	If irAnswer.TTA_SEQ>0
+		;  no need to update foreign keys again
+	Else
+		Calculate irAnswer.TTA_TTK_REF as irTestTaken.TTK_SEQ
+		Calculate irAnswer.TTA_TSQ_REF as irQuestion.TSQ_SEQ
+	End If
+	
+	;  if we are going to save to database each response, then do it here
+	If irAnswer.TTA_SEQ>0
+		;  Do irAnswer.$update() Returns lbOK
+	Else
+		;  Do irAnswer.$insert() Returns lbOK
+	End If
+	
+	Calculate irQuestion.irAnswer as irAnswer
+	Calculate ilQuestions.[ilQuestions.$line] as irQuestion
+	
+	;  increment status but only if question numbers are going up
+	If ilQuestions.$line>mid(irTestTaken.TTK_STATUS,pos('_',irTestTaken.TTK_STATUS)+1,9)
+		Calculate irTestTaken.TTK_STATUS as con('WIP_',ilQuestions.$line)
+	End If
+	Calculate inTestDurationMinutes as ddiff(kMinute,idtTestStart,#D)
+	Do irTestTaken.$update() Returns lbOK
+End If

@@ -1,0 +1,20 @@
+{
+	"classtype": "kSchema",
+	"internalversion": 3,
+	"nextident": 32020,
+	"properties": {
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2017-10-30 11:44:03",
+		"createinstancewhensubtype": true,
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"moddate": "2015-07-28 11:31:09",
+		"servertablename": "conf.certificateassign",
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": "1.00"
+	}
+}

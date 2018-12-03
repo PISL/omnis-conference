@@ -1,0 +1,23 @@
+;  Do ioMessage.$createbodypartfrombin(prBinary.binary,prBinary.mimeType,prBinary.charset,prBinary.encoding,prBinary.disposition,prBinary.filename) Returns inMessageIdBinary
+Calculate prefStructure as ''
+If upp(pcType)='BINARY'|upp(pcType)='BIN'
+	;  The binary data to be used as the content of the body part.
+	Do prefStructure.$cols.$add('binary',kBinary)
+Else If upp(pcType)='FILE'
+	;  The pathname of the file containing the body part data.The name of the 𯿿file will also be used to set the filename for the attachment if you do not 𯿿also pass th𯿿e cFilename parameter.
+	Do prefStructure.$cols.$add('path',kCharacter,kSimplechar,1000)
+Else
+	;  The character data to be used as the content of the body part.
+	Do prefStructure.$cols.$add('char',kCharacter,kSimplechar,1000000)
+End If
+
+;  The MIME type of the body part,in the standard syntax of type/subtype. If 𯿿you omit this, the type defaults to application/octet𯿿-𯿿stream
+Do prefStructure.$cols.$add('mimeType',kCharacter,kSimplechar,50)
+;  A kUniType... constant (default kU𯿿niTypeAuto) indicating the charset of 𯿿MIME type text/... (cannot be kUniTypeBinary or kUniTypeCharacter). If 𯿿this body part needs a charset,it is assumed to be already encoded using 𯿿this charset.
+Do prefStructure.$cols.$add('charset',kInteger,k32bitint)
+;  The encoding to be used to transfer the body part data e.g. ‘BASE64’. If 𯿿omitted, the mail client chooses a default.
+Do prefStructure.$cols.$add('encoding',kCharacter,kSimplechar,50)
+;  The content disposition value to be used for the body part e.g. ‘inline’ or 𯿿‘attachment’. If omitted, the mail client will use the default disposition.
+Do prefStructure.$cols.$add('disposition',kCharacter,kSimplechar,255)
+;  The name𯿿sent as the filename of the body part. If omitted, no filename 𯿿will be used.
+Do prefStructure.$cols.$add('filename',kCharacter,kSimplechar,255)

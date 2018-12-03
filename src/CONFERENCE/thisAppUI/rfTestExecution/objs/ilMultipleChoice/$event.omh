@@ -1,0 +1,21 @@
+On evClick
+	
+On evDoubleClick
+	
+On evCellChanged
+	Calculate lnCurrentLine as pVertCell
+	If irQuestion.TSQ_FORMAT='MC_1'
+		;  then only one option can be selected     ;; irQuestion   irAnswer   ilMultipleChoice
+		Calculate lnSelectCount as ilMultipleChoice.$cols.checked.$total
+		If lnSelectCount>1
+			If ilMultipleChoice.[lnCurrentLine].checked
+				;  then list line sticks and other checked entries get cleared
+				Do ilMultipleChoice.$sendall($ref.checked.$assign(kFalse))
+				Calculate ilMultipleChoice.[lnCurrentLine].checked as kTrue
+			End If
+		End If
+	End If
+	
+On evHeaderClick
+	
+On evHeadedListDisplayOrderChanged

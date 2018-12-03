@@ -1,0 +1,29 @@
+{
+	"ident": 1256,
+	"order": 11,
+	"objtype": "kText",
+	"properties": {
+		"align": "kRightJst",
+		"desgroup": 0,
+		"deslock": false,
+		"fieldstyle": "reportMedium",
+		"floating": false,
+		"font": 6,
+		"fontextra": 0,
+		"fontsize": 12,
+		"fontstyle": "kPlain",
+		"height": -1,
+		"left": 1.024,
+		"lineno": 7,
+		"lineoffset": 0.0,
+		"printontop": false,
+		"text": {
+			"type": 14,
+			"calc": "established"
+		},
+		"textcolor": "RGB(0,0,0)",
+		"userinfo": "",
+		"vertextend": false,
+		"width": 2.54
+	}
+}

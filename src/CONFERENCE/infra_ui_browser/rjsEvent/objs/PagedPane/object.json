@@ -1,0 +1,105 @@
+{
+	"ident": 1010,
+	"order": 10,
+	"objtype": "kPagedPane",
+	"properties": {
+		"alpha": 255,
+		"animatetransitions": false,
+		"autoscroll": false,
+		"backalpha": 255,
+		"backcolor": "RGB(238,238,238)",
+		"bordercolor": "kColorDefault",
+		"borderradius": "0",
+		"contextmenu": "",
+		"cssclassname": "",
+		"currentpage": 1,
+		"dataname": "",
+		"desgroup": 0,
+		"designactive": true,
+		"deslock": false,
+		"disablesystemfocus": true,
+		"effect": "kJSborderNone",
+		"enabled": true,
+		"events": "",
+		"linestyle": 1,
+		"objlink": 0,
+		"pagecount": 7,
+		"preventlayoutanimation": false,
+		"scrolltochangepage": false,
+		"tooltip": "",
+		"userinfo": "",
+		"visible": true
+	},
+	"layout": {
+		"320": {
+			"left": 125,
+			"top": 208,
+			"width": 752,
+			"height": 480,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"375": {
+			"left": 154,
+			"top": 208,
+			"width": 752,
+			"height": 592,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"480": {
+			"left": 170,
+			"top": 208,
+			"width": 310,
+			"height": 616,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"667": {
+			"left": 201,
+			"top": 208,
+			"width": 463,
+			"height": 616,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"768": {
+			"left": 201,
+			"top": 208,
+			"width": 567,
+			"height": 600,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"1024": {
+			"left": 201,
+			"top": 208,
+			"width": 752,
+			"height": 480,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"1280": {
+			"left": 201,
+			"top": 208,
+			"width": 752,
+			"height": 480,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		}
+	}
+}

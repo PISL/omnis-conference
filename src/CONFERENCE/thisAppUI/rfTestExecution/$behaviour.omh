@@ -1,0 +1,44 @@
+Do method SituationContext
+
+;  Begin text block
+;  Text: ilArrangements.$line>0      [ilArrangements.$line] (Carriage return)
+;  Text: &lbDateToday      [lbDateToday] (Carriage return)
+;  Text: &(lbTimeNow|lbTimeFuture)     [lbTimeNow] | [lbTimeFuture] (Carriage return)
+;  Text: &not(lbDelegateIsPresenter)     not( [lbDelegateIsPresenter] ) (Carriage return)
+;  Text: &not(lbMaxAttendeesReached)    not( [lbMaxAttendeesReached] ) (Carriage return)
+;  Text: &not(ibDelegateAlreadyAttending)    not( [ibDelegateAlreadyAttending] ) (Carriage return)
+;  End text block
+;  Get text block icDisplayMessage
+
+Calculate lbCanTakeTest as kFalse
+If ilTestsAll.$line>0
+	If isclear(ilTestsAll.TTK_STATUS)
+		Calculate lbCanTakeTest as kTrue
+	Else If ilTestsAll.TTK_STATUS<>'COMPLETE'
+		;  allows PAUSED, WIP_x
+		Calculate lbCanTakeTest as kTrue
+	End If
+End If
+Calculate $cinst.$objs.PagedPane.$objs.pbTakeTest.$enabled as lbCanTakeTest
+Calculate $cinst.$objs.PagedPane.$objs.pbDeleteTaken.$enabled as ilTestsAll.TTK_STATUS<>''
+Calculate $cinst.$objs.PagedPane.$objs.label_TTK_PERCENT.$visible as ilTestsAll.TTK_STATUS='COMPLETE'
+Calculate $cinst.$objs.PagedPane.$objs.TTK_PERCENT.$visible as ilTestsAll.TTK_STATUS='COMPLETE'
+
+If inCurrentPage=cnPageDoTest
+	Calculate $cinst.$objs.PagedPane.$objs.pbPreviousQuestion.$enabled as ilTestsAll.$line>0&ilQuestions.$line>1
+	Calculate $cinst.$objs.PagedPane.$objs.pbNextQuestion.$enabled as ilTestsAll.$line>0&ilQuestions.$line<ilQuestions.$linecount
+	
+	Calculate $cinst.$objs.PagedPane.$objs.pbSaveAnswers.$visible as kFalse
+	If mid(irTestTaken.TTK_STATUS,1,4)='WIP_'
+		;  when user sees question 10 displayed, status will be WIP_9
+		If mid(irTestTaken.TTK_STATUS,pos('_',irTestTaken.TTK_STATUS)+1,9)>=ilQuestions.$linecount-1
+			;  user has viewed all questions
+			Calculate $cinst.$objs.PagedPane.$objs.pbSaveAnswers.$visible as kTrue
+		End If
+	End If
+	
+	Calculate $cinst.$objs.PagedPane.$objs.ilMultipleChoice.$visible as ibDisplayMC
+	Calculate $cinst.$objs.PagedPane.$objs.TTA_ANSWER_single.$visible as ibDisplayKEYWORD
+	Calculate $cinst.$objs.PagedPane.$objs.TTA_ANSWER_multi.$visible as ibDisplayTEXT
+	Calculate $cinst.$objs.PagedPane.$objs.label_TTA_ANSWER.$visible as ibDisplayTEXT|ibDisplayKEYWORD
+End If

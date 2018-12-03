@@ -1,0 +1,430 @@
+{
+	"classtype": "kRemoteForm",
+	"internalversion": 12,
+	"superclass": "infra.rfBusinessRecords",
+	"designtaskname": "rtRegistration",
+	"nextident": 1149,
+	"lastgroupident": 5,
+	"cvardefs": [
+		{
+			"name": "clLabels",
+			"order": 5,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "cnPageAvailableTests",
+			"order": 4,
+			"type": "kNumber",
+			"subtype": "k0dpShortnum",
+			"sublen": 0,
+			"initval": "2"
+		},
+		{
+			"name": "cnPageDoTest",
+			"order": 3,
+			"type": "kNumber",
+			"subtype": "k0dpShortnum",
+			"sublen": 0,
+			"initval": "3"
+		},
+		{
+			"name": "cnPageLogin",
+			"order": 1,
+			"type": "kNumber",
+			"subtype": "k0dpShortnum",
+			"sublen": 0,
+			"initval": "1"
+		},
+		{
+			"name": "cnPageTestComplete",
+			"order": 2,
+			"type": "kNumber",
+			"subtype": "k0dpShortnum",
+			"sublen": 0,
+			"initval": "4"
+		}
+	],
+	"ivardefs": [
+		{
+			"name": "ibDateTimeFuture",
+			"order": 23,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibDateTimePast",
+			"order": 24,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibDateToday",
+			"order": 29,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibDelegateAlreadyBookedForSelectedTime",
+			"order": 31,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0,
+			"initval": "kFalse"
+		},
+		{
+			"name": "ibDelegateIsPresenter",
+			"order": 25,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibDelegateIsRegistered",
+			"order": 32,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0,
+			"initval": "kFalse"
+		},
+		{
+			"name": "ibDisplayKEYWORD",
+			"order": 46,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibDisplayMC",
+			"order": 44,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibDisplayTEXT",
+			"order": 45,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibMaxAttendeesReached",
+			"order": 30,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibTimeFuture",
+			"order": 28,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibTimeNow",
+			"order": 26,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "ibTimePast",
+			"order": 27,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0
+		},
+		{
+			"name": "icDGreference",
+			"order": 3,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 10
+		},
+		{
+			"name": "icDisplayMessage",
+			"order": 6,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 255
+		},
+		{
+			"name": "icQuestionPrompt",
+			"order": 35,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100
+		},
+		{
+			"name": "icResponseRule",
+			"order": 43,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100
+		},
+		{
+			"name": "icSurname",
+			"order": 8,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 30
+		},
+		{
+			"name": "idTestDate",
+			"order": 22,
+			"type": "kDate",
+			"subtype": "kDate2000",
+			"sublen": 0
+		},
+		{
+			"name": "idtTestStart",
+			"order": 41,
+			"type": "kDate",
+			"subtype": "kDatetime",
+			"sublen": 7
+		},
+		{
+			"name": "idtTestTime",
+			"order": 21,
+			"type": "kDate",
+			"subtype": "kTime",
+			"sublen": 0
+		},
+		{
+			"name": "ilArrangements",
+			"order": 14,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "ilConferences",
+			"order": 1,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "ilCountries",
+			"order": 5,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "ilDates",
+			"order": 12,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "ilDelegateSessions",
+			"order": 9,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "ilMultipleChoice",
+			"order": 40,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "ilQuestions",
+			"order": 34,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "ilTestsAll",
+			"order": 33,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "incPageLogin",
+			"order": 7,
+			"type": "kNumber",
+			"subtype": "k0dpShortnum",
+			"sublen": 0
+		},
+		{
+			"name": "inCurrentPage",
+			"order": 11,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0
+		},
+		{
+			"name": "inFilterTests",
+			"order": 47,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0
+		},
+		{
+			"name": "inTestDurationMinutes",
+			"order": 42,
+			"type": "kInteger",
+			"subtype": "kShortint",
+			"sublen": 0
+		},
+		{
+			"name": "ioArrangements",
+			"order": 37,
+			"type": "kObject",
+			"subtype": "oArrangements",
+			"sublen": 0
+		},
+		{
+			"name": "irAnswer",
+			"order": 36,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "irAnswerOrig",
+			"order": 39,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "irCompany",
+			"order": 13,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "irDelegate",
+			"order": 10,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "irQuestion",
+			"order": 20,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "irRegistration",
+			"order": 2,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "irTestTaken",
+			"order": 38,
+			"type": "kRow",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"aligntogrid": false,
+		"alpha": 255,
+		"alwaysenabledobject": "",
+		"animatelayouttransitions": false,
+		"backalpha": 255,
+		"backcolor": "RGB(255,255,255)",
+		"backpattern": 0,
+		"cancelkeyobject": "",
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"contextmenu": "",
+		"createdate": "2017-10-30 11:44:10",
+		"defaultappearance": "kAppearanceiOS",
+		"desc": "",
+		"designshowmobiletitle": true,
+		"disabledefaultcontextmenu": false,
+		"editor": "",
+		"editordata": "",
+		"events": "",
+		"external": true,
+		"forecolor": "RGB(255,255,255)",
+		"horzgrid": 8,
+		"horzscroll": false,
+		"inheritedorder": 1,
+		"issupercomponent": false,
+		"layouttype": "kLayoutTypeScreen",
+		"left": 203,
+		"moddate": "2017-12-12 13:07:26",
+		"okkeyobject": "",
+		"resizemode": "kJSformResizeModeNone",
+		"screensize": "kSSZDesktop",
+		"serverlessclient": false,
+		"showascheckedout": false,
+		"showgrid": false,
+		"sizetogrid": false,
+		"startfield": 0,
+		"title": {
+			"type": 0,
+			"calc": "New remote form"
+		},
+		"top": 96,
+		"userinfo": "",
+		"version": "2",
+		"vertgrid": 8,
+		"vertscroll": false
+	},
+	"screensizes": [
+		{
+			"name": "kSSZDesktop",
+			"width": 928,
+			"height": 725
+		},
+		{
+			"name": "kSSZjs320x480Portrait",
+			"width": 320,
+			"height": 460
+		},
+		{
+			"name": "kSSZjs320x480Landscape",
+			"width": 480,
+			"height": 300
+		},
+		{
+			"name": "kSSZjs768x1024Portrait",
+			"width": 768,
+			"height": 1004
+		},
+		{
+			"name": "kSSZjs768x1024Landscape",
+			"width": 1024,
+			"height": 748
+		},
+		{
+			"name": "kSSZjs345x345",
+			"width": 345,
+			"height": 325
+		},
+		{
+			"name": "kSSZjs360x640Portrait",
+			"width": 360,
+			"height": 620
+		},
+		{
+			"name": "kSSZjs360x640Landscape",
+			"width": 640,
+			"height": 340
+		}
+	]
+}

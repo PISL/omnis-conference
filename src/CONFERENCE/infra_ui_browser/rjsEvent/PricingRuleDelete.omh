@@ -1,0 +1,8 @@
+If ilPricingGrid.$line>0
+	Do ilPricingGrid.$remove(ilPricingGrid.$line)
+	Calculate ilPricingGrid.$line as ilPricingGrid.$line-1
+	While $Loop(ilPricingGrid)
+		Calculate ilPricingGrid.CFP_ORDER as ilPricingGrid.$line
+	End While
+	Calculate icMode as 'EP'     ;; this will turn on Cancel and Save
+End If

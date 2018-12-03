@@ -1,0 +1,33 @@
+On evClick
+	Calculate icDisplayMessage as ''
+	
+	If inCurrentTab=cnTabTestDesc
+		Do irCurrentRecord.$checkChildren() Returns lnCountChildren
+		If lnCountChildren=0
+			If
+				Do $cinst.$clientNoYesMsg(con($cell(clLabels,'objName','disp_delete','label'),' ',con('"',irCurrentRecord.DisplayName,'"',' from ',ilSearch2.DisplayName),'?  ',$cell(clLabels,'objName','disp_confirm','label')),$cell(clLabels,'objName','disp_respond','label'),'$deleteTST')
+			Else
+				Do $cinst.$clientNoYesMsg(con($cell(clLabels,'objName','disp_delete','label'),' ',con('"',irCurrentRecord.DisplayName,'"',' from ',ilSearch1.CF_TITLE),'?  ',$cell(clLabels,'objName','disp_confirm','label')),$cell(clLabels,'objName','disp_respond','label'),'$deleteTST')
+			End If
+		Else
+			Do irCurrentRecord.$getTablesWithChildren(kTrue) Returns lcTablesWithChildren
+			Calculate icDisplayMessage as con($cell(clLabels,'objName','disp_child_nodelete','label'),kCr,lcTablesWithChildren)
+			Do $cinst.$behaviour()
+			Do $cinst.$redraw()
+		End If
+		
+	Else If inCurrentTab=cnTabQuestions
+		;  the PAX record may have a dietRequest record associated within it
+		Do irQuestion.$checkChildren(lrDietRequest.$servertablenames()) Returns lnCountChildren
+		If lnCountChildren=0
+			Do $cinst.$clientNoYesMsg(con($cell(clLabels,'objName','disp_delete','label'),' ',con(irQuestion.DisplayName,' from ',irCurrentRecord.TST_TITLE),'?  ',$cell(clLabels,'objName','disp_confirm','label')),$cell(clLabels,'objName','disp_respond','label'),'$deleteTSQ')
+		Else
+			Do irQuestion.$getTablesWithChildren(kTrue) Returns lcTablesWithChildren
+			Calculate icDisplayMessage as con($cell(clLabels,'objName','disp_child_nodelete','label'),kCr,lcTablesWithChildren)
+			Do $cinst.$behaviour()
+			Do $cinst.$redraw()
+		End If
+		
+	Else
+		Breakpoint
+	End If

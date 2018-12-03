@@ -1,0 +1,17 @@
+On evBefore
+	
+On evAfter
+	Calculate icDisplayMessage as ''
+	Calculate $cobj.$errortext as ''
+	
+	If irRegistration.PSN_EMAIL<>''
+		Do ioFormat.$FormatEmail(irRegistration.PSN_EMAIL) Returns icValidationText
+		If icValidationText<>''
+			Calculate icDisplayMessage as icValidationText
+			Calculate $cobj.$errortext as icValidationText
+		Else     ;; all good
+			Do method FetchPerson (kTrue)
+			Do method DisplayPrice     ;; will add irRegistration to ilPersons via PrepareRegistration when trying to find a price to display
+		End If
+	End If
+	Do $cinst.$behaviour()

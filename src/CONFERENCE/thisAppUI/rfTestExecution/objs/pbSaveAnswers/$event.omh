@@ -1,0 +1,4 @@
+On evClick
+	Do method SaveAnswer
+	Do method SubmitAnswers
+	Do $cinst.$behaviour()

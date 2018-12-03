@@ -1,0 +1,7 @@
+On evClick
+	Calculate icDisplayMessage as ''
+	Calculate ilTopics.$line as pLineNumber
+	;  Calculate irTopic as ilTopics
+	Do method TopicSelected
+	;  Calculate $cinst.$objs.TabControl_PERSON.$objs.TabControl_TOPIC.$currenttab as 1
+	Do $cinst.$behaviour()

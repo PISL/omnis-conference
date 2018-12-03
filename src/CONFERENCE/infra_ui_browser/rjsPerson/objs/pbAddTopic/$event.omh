@@ -1,0 +1,8 @@
+On evClick
+	Calculate icDisplayMessage as ''
+	Do irTopic.$clear()
+	Calculate icMode as 'IT'     ;; insert topic
+	Calculate $cinst.$objs.PagedPane_PERSON.$objs.TabControl_TOPIC.$currenttab as 1
+	
+	Do $cinst.$behaviour()
+	Do $cinst.$redraw()

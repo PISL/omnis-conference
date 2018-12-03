@@ -1,0 +1,10 @@
+;  what determines all Conference records?
+;  up to the last 20 events
+
+;  Do ilDisplayRecords.$fetch_all()
+Do ilDisplayRecords.$fetchLatest(20,kTrue)
+If ilDisplayRecords.irErrorSQL.NativeErrorText<>''
+	Calculate icDisplayMessage as ilDisplayRecords.irErrorSQL.NativeErrorText
+End If
+
+Do ilDisplayRecords.$sort($ref.CF_DATE_FROM,1,$ref.CF_TITLE,0)

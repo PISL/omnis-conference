@@ -1,0 +1,110 @@
+{
+	"ident": 1135,
+	"order": 135,
+	"objtype": "kComponent",
+	"componentlib": "jsCheckbox",
+	"componentctrl": "Checkbox Control",
+	"properties": {
+		"alpha": 255,
+		"backalpha": 255,
+		"backcolor": "RGB(238,238,238)",
+		"bordercolor": "kColorDefault",
+		"contextmenu": "",
+		"cssclassname": "",
+		"dataname": "ibCurrentMember",
+		"desgroup": 0,
+		"designactive": true,
+		"deslock": false,
+		"disabledefaultcontextmenu": false,
+		"disablesystemfocus": false,
+		"dropmode": "kAcceptNone",
+		"effect": "kJSborderNone",
+		"enabled": false,
+		"events": "",
+		"fieldstyle": "",
+		"font": 1,
+		"fontsize": 8,
+		"fontstyle": "kPlain",
+		"iconid": 0,
+		"linestyle": 1,
+		"objlink": 65540,
+		"preventlayoutanimation": false,
+		"text": "current",
+		"textcolor": "kColorDefault",
+		"tooltip": "",
+		"userinfo": "",
+		"visible": true
+	},
+	"layout": {
+		"320": {
+			"left": 456,
+			"top": 432,
+			"width": 79,
+			"height": 19,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"375": {
+			"left": 456,
+			"top": 432,
+			"width": 79,
+			"height": 19,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"480": {
+			"left": 456,
+			"top": 432,
+			"width": 79,
+			"height": 19,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"667": {
+			"left": 456,
+			"top": 432,
+			"width": 79,
+			"height": 19,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"768": {
+			"left": 152,
+			"top": 744,
+			"width": 79,
+			"height": 19,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"1024": {
+			"left": 456,
+			"top": 536,
+			"width": 79,
+			"height": 19,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"1280": {
+			"left": 456,
+			"top": 552,
+			"width": 79,
+			"height": 19,
+			"dragborder": false,
+			"edgefloat": "kEFnone",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		}
+	}
+}

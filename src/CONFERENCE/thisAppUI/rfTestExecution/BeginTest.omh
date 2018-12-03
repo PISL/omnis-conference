@@ -1,0 +1,42 @@
+Calculate icDisplayMessage as ''
+
+;  Breakpoint
+If ilTestsAll.TTK_STATUS<>''
+	Do irTestTaken.$clear()
+	Do irTestTaken.$fetch_fk(ilTestsAll.TST_SEQ,'TTK_TST_REF') Returns lbOK
+Else
+	Do irTestTaken.$clear()
+	Calculate irTestTaken.TTK_TST_REF as ilTestsAll.TST_SEQ
+	Calculate irTestTaken.TTK_DG_REF as irDelegate.DG_SEQ
+	Calculate irTestTaken.TTK_START as #D     ;; same as TTK_CWHEN so doesn't add mnuch value
+	Calculate irTestTaken.TTK_STATUS as 'BEGIN'
+	Do irTestTaken.$insert() Returns lbOK
+End If
+If lbOK
+	Do ilQuestions.$clear()
+	Do ilQuestions.$fetch_fk(ilTestsAll.TST_SEQ,'TSQ_TST_REF')
+	If ilQuestions.$linecount>0
+		Calculate ilQuestions.$line as 0
+		While $Loop(ilQuestions)
+			Calculate irAnswer.TTA_TTK_REF as irTestTaken.TTK_SEQ
+			Calculate irAnswer.TTA_TSQ_REF as ilQuestions.TSQ_SEQ
+			Do irAnswer.$fetch_ck()
+			If irAnswer.TTA_SEQ>0
+				Calculate ilQuestions.irAnswer as irAnswer
+			End If
+		End While
+		Do ilQuestions.$sort($ref.TSQ_ORDER,0)
+		Calculate ilQuestions.$line as 1
+		
+		Do method PresentQuestionAndAnswer
+		
+		Calculate inCurrentPage as cnPageDoTest
+		Calculate $cinst.$objs.PagedPane.$currentpage as inCurrentPage
+	Else
+		Calculate icDisplayMessage as 'Invalid Test!  No questions have been defined.'
+	End If
+	
+	Calculate idtTestStart as #D
+Else
+	Calculate icDisplayMessage as irTestTaken.irErrorSQL.NativeErrorText
+End If

@@ -1,0 +1,16 @@
+{
+	"ident": 1022,
+	"order": 18,
+	"properties": {
+		"cascade": "",
+		"checked": false,
+		"commandid": 1022,
+		"enabled": true,
+		"iconid": 0,
+		"text": {
+			"type": 0,
+			"calc": "Arrange day 4 evening"
+		},
+		"userinfo": ""
+	}
+}

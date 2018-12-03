@@ -1,0 +1,12 @@
+On evClick
+	Do ioResolve.$calculationText() Returns icDisplayMessage
+	Calculate ilMoveConfPrice.$line as 1
+	Do $cinst.$behaviour()
+	
+On evDoubleClick
+	
+On evCellChanged
+	
+On evHeaderClick
+	
+On evHeadedListDisplayOrderChanged

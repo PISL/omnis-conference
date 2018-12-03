@@ -1,0 +1,23 @@
+If irRegistration.EO_NAME<>''
+	Calculate lbFetch as kTrue
+End If
+If lbFetch
+	Do ioExternalOrgs.$init(lrCustomer,lrLinkCustToIntOrg) Returns lbOK
+	Do lrCustomer.$fetchOurCustomers(#NULL,irRegistration.EO_NAME)
+	If lrCustomer.EO_SEQ>0
+		Calculate irRegistration.EO_NAME as lrCustomer.EO_NAME
+		Calculate irRegistration.EO_EMAIL as lrCustomer.EO_EMAIL
+		Calculate irRegistration.EO_ADDR_BILL as lrCustomer.EO_ADDR_BILL
+		Calculate irRegistration.EO_CONTACT as lrCustomer.EO_CONTACT
+		Calculate irRegistration.EO_COMPANY_NO as lrCustomer.EO_COMPANY_NO     ;; not on screen
+		Calculate irRegistration.EO_VAT_NO as lrCustomer.EO_VAT_NO
+	Else
+		If not(pbAutoLookup)     ;; manual lookup instructed by user
+			Calculate icDisplayMessage as 'Customer record not found using NAME'
+		End If
+	End If
+Else
+	If not(pbAutoLookup)     ;; manual lookup instructed by user
+		Calculate icDisplayMessage as 'Customer name must be provided'
+	End If
+End If

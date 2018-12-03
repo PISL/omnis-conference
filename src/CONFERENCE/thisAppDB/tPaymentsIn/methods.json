@@ -1,0 +1,209 @@
+[
+	{
+		"name": "$construct",
+		"ident": 0,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$validation",
+		"ident": 3,
+		"order": 4,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "lcMessage",
+				"order": 1,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 255
+			}
+		]
+	},
+	{
+		"name": "$Links",
+		"ident": 5,
+		"order": 9,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "llLinks",
+				"order": 1,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lrConference",
+				"order": 3,
+				"type": "kRow",
+				"subtype": "sConference",
+				"sublen": 0
+			},
+			{
+				"name": "lrDelegates",
+				"order": 2,
+				"type": "kRow",
+				"subtype": "sDelegates",
+				"sublen": 0
+			},
+			{
+				"name": "lrPerson",
+				"order": 4,
+				"type": "kRow",
+				"subtype": "sPerson",
+				"sublen": 0
+			},
+			{
+				"name": "lrVenue",
+				"order": 5,
+				"type": "kRow",
+				"subtype": "sVenue",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$ForeignKeys",
+		"ident": 4,
+		"order": 10,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+			{
+				"name": "llForeignKeyList",
+				"order": 1,
+				"type": "kList",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lrDelegates",
+				"order": 2,
+				"type": "kRow",
+				"subtype": "sDelegates",
+				"sublen": 0
+			}
+		]
+	},
+	{
+		"name": "$textSearchForConference",
+		"ident": 1,
+		"order": 11,
+		"pvardefs": [
+			{
+				"name": "pnCF_SEQ",
+				"order": 1,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pcText",
+				"order": 9,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100,
+				"param": 2
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "lbImmediateSession",
+				"order": 5,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0,
+				"initval": "kFalse"
+			},
+			{
+				"name": "lbOK",
+				"order": 2,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "lcText",
+				"order": 14,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100
+			},
+			{
+				"name": "liColRef",
+				"order": 7,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "llData",
+				"order": 10,
+				"type": "kList",
+				"subtype": "sPaymentsIn",
+				"sublen": 0
+			},
+			{
+				"name": "lnAmount",
+				"order": 13,
+				"type": "kNumber",
+				"subtype": "k2dp",
+				"sublen": 0
+			},
+			{
+				"name": "lnColNo",
+				"order": 8,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0
+			},
+			{
+				"name": "loSession",
+				"order": 3,
+				"type": "kObject",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "loStatement",
+				"order": 4,
+				"type": "kObject",
+				"subtype": "",
+				"sublen": 0
+			},
+			{
+				"name": "lrDelegate",
+				"order": 11,
+				"type": "kRow",
+				"subtype": "sDelegates",
+				"sublen": 0
+			},
+			{
+				"name": "lrPerson",
+				"order": 12,
+				"type": "kRow",
+				"subtype": "sPerson",
+				"sublen": 0
+			},
+			{
+				"name": "lrProducts",
+				"order": 6,
+				"type": "kRow",
+				"subtype": "infra.sProducts",
+				"sublen": 0
+			}
+		]
+	}
+]
