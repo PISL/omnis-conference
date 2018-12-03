@@ -31,7 +31,7 @@ Create the stb database from its [SQL script](https://github.com/PISL/omnis-stbe
 
 `psql -h dbServer -p port -d dbToConnectTo -U userName -a -f /path/to/stb.sql` 
 
-The SQLite [initialisation database](lib/CONFERENCE.ibini) is set up to expect the application databases to be running on localhost port 5432.  If this differs from your installation, you will need to open the file with an SQLite DB tool or an Omnis SQL Browser session and edit the appropriate rows:
+The SQLite [initialisation database](lib/CONFERENCE.libini) is set up to expect the application databases to be running on localhost port 5432.  If this differs from your installation, you will need to open the file with an SQLite DB tool or an Omnis SQL Browser session and edit the appropriate rows:
 
 ```
 update inidb set db_value = 'YourPgServer' where db_key = 'Host';
