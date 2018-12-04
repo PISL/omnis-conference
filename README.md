@@ -40,5 +40,9 @@ update inidb set db_value = portnumber where db_key = 'port'
 
 ## Usage
 
-First open infra.lbs, followed by CONFERENCE.lbs
+Open infra.lbs
+
+If you have installed the stb database, open infra.tkSuper and set a Postgres user name and password for the local variables lcUserName and lcPassword in the $buildStringTable method.
+
+Open CONFERENCE.lbs
 
