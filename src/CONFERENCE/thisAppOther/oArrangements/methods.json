@@ -101,5 +101,16 @@
 				"sublen": 255
 			}
 		]
+	},
+	{
+		"name": "--- COPYRIGHT ---",
+		"ident": 4,
+		"order": 5,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
 	}
 ]

@@ -1,6 +1,6 @@
 {
 	"classtype": "kRemoteForm",
-	"internalversion": 11,
+	"internalversion": 12,
 	"superclass": "infra.rfMarquee",
 	"designtaskname": "rtBusinessApp",
 	"nextident": 1002,
@@ -40,7 +40,7 @@
 		"issupercomponent": false,
 		"layouttype": "kLayoutTypeSingle",
 		"left": 486,
-		"moddate": "2018-07-10 11:18:30",
+		"moddate": "2018-12-04 08:19:27",
 		"okkeyobject": "",
 		"resizemode": "kJSformResizeModeNone",
 		"serverlessclient": false,

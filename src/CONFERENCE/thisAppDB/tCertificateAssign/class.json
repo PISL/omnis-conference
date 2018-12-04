@@ -1,6 +1,6 @@
 {
 	"classtype": "kTable",
-	"internalversion": 5,
+	"internalversion": 6,
 	"superclass": "infra.tMaster",
 	"designtaskname": "Startup_Task",
 	"cvardefs": [
@@ -39,7 +39,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2017-10-30 16:25:28",
+		"moddate": "2018-12-04 08:19:27",
 		"showascheckedout": false,
 		"sqlclassname": "sCertificateAssign",
 		"userinfo": "",

@@ -1,6 +1,6 @@
 {
 	"classtype": "kObjectclass",
-	"internalversion": 5,
+	"internalversion": 6,
 	"superclass": "infra.oValues",
 	"designtaskname": "Startup_Task",
 	"cvardefs": [
@@ -19,7 +19,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2018-11-27 15:33:35",
+		"moddate": "2018-12-04 08:19:27",
 		"selfcontained": false,
 		"showascheckedout": false,
 		"userinfo": "",

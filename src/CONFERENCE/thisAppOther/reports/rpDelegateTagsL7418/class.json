@@ -1,6 +1,6 @@
 {
 	"classtype": "kReport",
-	"internalversion": 18,
+	"internalversion": 19,
 	"superclass": "rpDelegateTagsSuper",
 	"designtaskname": "Startup_Task",
 	"nextident": 1021,
@@ -52,7 +52,7 @@
 		"macosdesttype": "kPrinter",
 		"mainfile": "",
 		"mainlist": "ilData",
-		"moddate": "2018-09-25 17:18:25",
+		"moddate": "2018-12-04 08:19:27",
 		"orientation": "kOrientPortrait",
 		"pagesetupdata": {
 			"$base64": ""

@@ -1,6 +1,6 @@
 {
 	"classtype": "kObjectclass",
-	"internalversion": 106,
+	"internalversion": 107,
 	"superclass": "infra.oReportingSuper",
 	"designtaskname": "rtSuper",
 	"cvardefs": [
@@ -284,7 +284,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2018-10-23 16:42:49",
+		"moddate": "2018-12-04 08:19:27",
 		"selfcontained": false,
 		"showascheckedout": false,
 		"userinfo": "",

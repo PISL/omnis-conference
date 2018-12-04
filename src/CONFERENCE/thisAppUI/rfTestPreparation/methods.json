@@ -602,5 +602,17 @@
 				"sublen": 255
 			}
 		]
+	},
+	{
+		"name": "--- COPYRIGHT ---",
+		"ident": 17,
+		"order": 25,
+		"clientexec": false,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
 	}
 ]

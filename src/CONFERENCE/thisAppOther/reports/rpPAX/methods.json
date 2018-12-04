@@ -72,15 +72,14 @@
 		]
 	},
 	{
-		"name": "New Method",
-		"ident": 0,
-		"order": 3,
+		"name": "--- COPYRIGHT ---",
+		"ident": 3,
+		"order": 4,
 		"pvardefs": [
 
 		],
 		"lvardefs": [
 
-		],
-		"empty": true
+		]
 	}
 ]

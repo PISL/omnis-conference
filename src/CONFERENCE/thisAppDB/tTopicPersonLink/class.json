@@ -1,6 +1,6 @@
 {
 	"classtype": "kTable",
-	"internalversion": 6,
+	"internalversion": 7,
 	"superclass": "infra.tMaster",
 	"designtaskname": "Startup_Task",
 	"cvardefs": [
@@ -31,7 +31,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2018-09-10 17:48:00",
+		"moddate": "2018-12-04 08:19:27",
 		"showascheckedout": false,
 		"sqlclassname": "sTopicPersonLink",
 		"userinfo": "",

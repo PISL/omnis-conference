@@ -1,6 +1,6 @@
 {
 	"classtype": "kObjectclass",
-	"internalversion": 4,
+	"internalversion": 5,
 	"superclass": ".OWEB.Web Worker Objects\\SMTPClientWorker",
 	"designtaskname": "Startup_Task",
 	"cvardefs": [
@@ -201,7 +201,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2017-11-01 11:46:35",
+		"moddate": "2018-12-04 08:19:27",
 		"selfcontained": false,
 		"showascheckedout": false,
 		"userinfo": "",

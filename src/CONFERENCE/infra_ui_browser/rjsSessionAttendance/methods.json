@@ -704,5 +704,17 @@
 
 		],
 		"empty": true
+	},
+	{
+		"name": "--- COPYRIGHT ---",
+		"ident": 28,
+		"order": 29,
+		"clientexec": false,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
 	}
 ]

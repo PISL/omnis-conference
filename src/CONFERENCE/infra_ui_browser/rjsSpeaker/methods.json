@@ -800,5 +800,17 @@
 				"initval": "kFalse"
 			}
 		]
+	},
+	{
+		"name": "--- COPYRIGHT ---",
+		"ident": 33,
+		"order": 34,
+		"clientexec": false,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
 	}
 ]

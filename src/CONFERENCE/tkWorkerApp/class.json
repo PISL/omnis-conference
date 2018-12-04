@@ -1,6 +1,6 @@
 {
 	"classtype": "kTask",
-	"internalversion": 26,
+	"internalversion": 27,
 	"superclass": "infra.tkWorker",
 	"tvardefs": [
 
@@ -21,7 +21,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2018-11-08 08:43:09",
+		"moddate": "2018-12-04 08:19:27",
 		"showascheckedout": false,
 		"userinfo": "",
 		"version": ""

@@ -1,6 +1,6 @@
 {
 	"classtype": "kRemoteForm",
-	"internalversion": 227,
+	"internalversion": 228,
 	"superclass": "infra.rjsInfraBlank",
 	"designtaskname": "rtSessions",
 	"nextident": 1065,
@@ -551,7 +551,7 @@
 		"layoutbreakpoints": "320,375,480,667,768,1024,1280",
 		"layouttype": "kLayoutTypeResponsive",
 		"left": 145,
-		"moddate": "2018-11-27 10:08:05",
+		"moddate": "2018-12-04 08:19:27",
 		"okkeyobject": "",
 		"serverlessclient": false,
 		"showascheckedout": false,

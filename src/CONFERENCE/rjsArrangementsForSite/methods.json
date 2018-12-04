@@ -314,5 +314,17 @@
 				"initval": "rgb(170,0,170)"
 			}
 		]
+	},
+	{
+		"name": "--- COPYRIGHT ---",
+		"ident": 11,
+		"order": 13,
+		"clientexec": false,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
 	}
 ]

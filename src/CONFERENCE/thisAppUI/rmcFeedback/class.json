@@ -1,6 +1,6 @@
 {
 	"classtype": "kRemoteMenu",
-	"internalversion": 3,
+	"internalversion": 4,
 	"nextident": 1007,
 	"properties": {
 		"componenticon": 0,
@@ -11,7 +11,7 @@
 		"editordata": "",
 		"enabled": true,
 		"external": false,
-		"moddate": "2016-02-12 14:53:55",
+		"moddate": "2018-12-04 08:19:27",
 		"showascheckedout": false,
 		"title": "",
 		"userinfo": "",

@@ -1,6 +1,6 @@
 {
 	"classtype": "kRemoteForm",
-	"internalversion": 43,
+	"internalversion": 44,
 	"superclass": "infra.rjsInfraSuper",
 	"designtaskname": "rtBusinessApp",
 	"nextident": 1008,
@@ -61,7 +61,7 @@
 		"layoutbreakpoints": "320,375,480,667,768,1024,1280",
 		"layouttype": "kLayoutTypeResponsive",
 		"left": 1,
-		"moddate": "2018-11-26 18:21:31",
+		"moddate": "2018-12-04 08:19:27",
 		"okkeyobject": "",
 		"serverlessclient": false,
 		"showascheckedout": false,

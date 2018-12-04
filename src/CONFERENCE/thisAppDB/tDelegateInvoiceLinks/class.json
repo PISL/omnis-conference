@@ -1,6 +1,6 @@
 {
 	"classtype": "kTable",
-	"internalversion": 18,
+	"internalversion": 19,
 	"superclass": "infra.tMaster",
 	"designtaskname": "Startup_Task",
 	"cvardefs": [
@@ -32,7 +32,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2018-09-10 17:56:54",
+		"moddate": "2018-12-04 08:19:27",
 		"showascheckedout": false,
 		"sqlclassname": "sDelegateInvoiceLinks",
 		"userinfo": "",
