@@ -5,6 +5,8 @@ A conference management application centered around the needs of the annual Euro
 
 [Omnis Studio 8.1](https://www.omnis.net) or later
 
+ArtsMan's [TMobjs](http://www2.artsman.com/omnis/Software/TMObjs257.zip) xcomp
+
 The [omnis-infra](https://github.com/PISL/omnis-infra) library.
 
 A PostgreSQL installation with two databases named conference and stb.  The first holds the data for the conference application and can be created from the included [conference.sql](db/conference.sql) file which contains data from the EurOmnis management database but with personal information obfuscated. This script also includes creation statements for the minimum required postgres roles, _developer, regular and console.
@@ -46,3 +48,10 @@ If you have installed the stb database, open infra.tkSuper and set a Postgres us
 
 Open CONFERENCE.lbs
 
+## Acknowledgements
+
+With thanks to [Arts Management Systems Ltd](https://www.artsman.com) for the TMobjs external component and for their charting tool, [Marquee](https://github.com/artsman/MarqueeCharts), used in the Dashboard.
+
+## Contributing
+
+We would welcome contributions to the application.  Please fork the repository and submit pull requests in the usual manner.
