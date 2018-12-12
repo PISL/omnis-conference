@@ -48,6 +48,9 @@ If you have installed the stb database, open infra.tkSuper and set a Postgres us
 
 Open CONFERENCE.lbs
 
+### Notes
+There is a document [here](https://github.com/PISL/omnis-infra/resources/How_rjsInfraMenu_works.md) which gives an overview of the menus used in the jsClient server side of the application.
+
 ## Acknowledgements
 
 With thanks to [Arts Management Systems Ltd](https://www.artsman.com) for the TMobjs external component and for their charting tool, [Marquee](https://github.com/artsman/MarqueeCharts), used in the Dashboard.
