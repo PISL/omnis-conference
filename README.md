@@ -49,7 +49,7 @@ If you have installed the stb database, open infra.tkSuper and set a Postgres us
 Open CONFERENCE.lbs
 
 ### Notes
-There is a document [here](https://github.com/PISL/omnis-infra/resources/How_rjsInfraMenu_works.md) which gives an overview of the menus used in the jsClient server side of the application.
+There is a document [here](https://github.com/PISL/omnis-infra/blob/master/resources/How_rjsInfraMenu_works.md) which gives an overview of the menus used in the jsClient server side of the application.
 
 ## Acknowledgements
 
