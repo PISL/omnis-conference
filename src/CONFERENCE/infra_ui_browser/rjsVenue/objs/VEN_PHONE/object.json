@@ -57,7 +57,7 @@
 	},
 	"layout": {
 		"320": {
-			"left": 16,
+			"left": 8,
 			"top": 32,
 			"width": 180,
 			"height": 25,
@@ -68,7 +68,7 @@
 			"visible": true
 		},
 		"375": {
-			"left": 16,
+			"left": 8,
 			"top": 32,
 			"width": 180,
 			"height": 25,
@@ -79,7 +79,7 @@
 			"visible": true
 		},
 		"480": {
-			"left": 16,
+			"left": 8,
 			"top": 32,
 			"width": 180,
 			"height": 25,

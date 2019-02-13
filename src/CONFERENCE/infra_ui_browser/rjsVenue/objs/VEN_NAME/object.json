@@ -57,10 +57,10 @@
 	},
 	"layout": {
 		"320": {
-			"left": -100,
-			"top": 204,
-			"width": 480,
-			"height": 25,
+			"left": 128,
+			"top": 128,
+			"width": 184,
+			"height": 56,
 			"align": "kLeftJst",
 			"dragborder": false,
 			"edgefloat": "kEFnone",
@@ -68,10 +68,10 @@
 			"visible": true
 		},
 		"375": {
-			"left": -72,
-			"top": 204,
-			"width": 480,
-			"height": 25,
+			"left": 160,
+			"top": 128,
+			"width": 208,
+			"height": 56,
 			"align": "kLeftJst",
 			"dragborder": false,
 			"edgefloat": "kEFnone",
@@ -79,10 +79,10 @@
 			"visible": true
 		},
 		"480": {
-			"left": -20,
-			"top": 204,
-			"width": 480,
-			"height": 25,
+			"left": 176,
+			"top": 128,
+			"width": 296,
+			"height": 56,
 			"align": "kLeftJst",
 			"dragborder": false,
 			"edgefloat": "kEFnone",
@@ -90,9 +90,9 @@
 			"visible": true
 		},
 		"667": {
-			"left": 74,
-			"top": 204,
-			"width": 480,
+			"left": 200,
+			"top": 144,
+			"width": 464,
 			"height": 25,
 			"align": "kLeftJst",
 			"dragborder": false,
@@ -101,8 +101,8 @@
 			"visible": true
 		},
 		"768": {
-			"left": 124,
-			"top": 204,
+			"left": 200,
+			"top": 144,
 			"width": 480,
 			"height": 25,
 			"align": "kLeftJst",
@@ -112,8 +112,8 @@
 			"visible": true
 		},
 		"1024": {
-			"left": 252,
-			"top": 204,
+			"left": 328,
+			"top": 120,
 			"width": 480,
 			"height": 25,
 			"align": "kLeftJst",

@@ -33,9 +33,9 @@ Calculate $cinst.$objs.ilTZcity.$enabled as pos('V',icMode)
 
 Calculate $cinst.$objs.VEN_INSTRUCTIONS.$enabled as pos('V',icMode)
 Calculate $cinst.$objs.VEN_STATUS.$enabled as pos('V',icMode)
-Calculate $cinst.$objs.VEN_ROOM.$enabled as pos('V',icMode)
 Calculate $cinst.$objs.VEN_PHONE.$enabled as pos('V',icMode)
 Calculate $cinst.$objs.VEN_COMMENT_INTERNAL.$enabled as pos('V',icMode)
+Calculate $cinst.$objs.VEN_TRANSFERS.$enabled as pos('V',icMode)
 
 Calculate $cinst.$objs.ilFacilities.$enabled as icMode=''
 Calculate $cinst.$objs.FCY_NAME.$enabled as pos('F',icMode)

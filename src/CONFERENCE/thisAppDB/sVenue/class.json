@@ -1,7 +1,7 @@
 {
 	"classtype": "kSchema",
-	"internalversion": 3,
-	"nextident": 32030,
+	"internalversion": 4,
+	"nextident": 32031,
 	"properties": {
 		"componenticon": 0,
 		"componenttype": "kCompStoreHidden",
@@ -11,7 +11,7 @@
 		"editor": "",
 		"editordata": "",
 		"external": true,
-		"moddate": "2015-10-27 10:46:49",
+		"moddate": "2019-02-13 15:20:49",
 		"servertablename": "conf.venue",
 		"showascheckedout": false,
 		"userinfo": "Copyright © 1999-2012 Platform Independent Systems Limited, registered company number 3155091, UK",

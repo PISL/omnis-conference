@@ -145,7 +145,7 @@
 		"order": 11,
 		"type": "kCharacter",
 		"subtype": "kSimplechar",
-		"sublen": 255,
+		"sublen": 1500,
 		"properties": {
 			"desc": "comment or note about venue",
 			"nonull": false,
@@ -201,7 +201,7 @@
 		"order": 15,
 		"type": "kCharacter",
 		"subtype": "kSimplechar",
-		"sublen": 255,
+		"sublen": 1500,
 		"properties": {
 			"desc": "",
 			"nonull": false,
@@ -300,6 +300,20 @@
 		"type": "kCharacter",
 		"subtype": "kSimplechar",
 		"sublen": 100,
+		"properties": {
+			"desc": "",
+			"nonull": false,
+			"primarykey": false,
+			"userinfo": ""
+		}
+	},
+	{
+		"name": "VEN_TRANSFERS",
+		"ident": 32030,
+		"order": 23,
+		"type": "kCharacter",
+		"subtype": "kSimplechar",
+		"sublen": 1500,
 		"properties": {
 			"desc": "",
 			"nonull": false,

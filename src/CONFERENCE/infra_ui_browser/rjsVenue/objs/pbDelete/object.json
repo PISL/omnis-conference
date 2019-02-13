@@ -39,8 +39,8 @@
 	},
 	"layout": {
 		"320": {
-			"left": -36,
-			"top": 668,
+			"left": 240,
+			"top": 832,
 			"width": 30,
 			"height": 30,
 			"align": "kCenterJst",
@@ -50,8 +50,8 @@
 			"visible": true
 		},
 		"375": {
-			"left": -8,
-			"top": 668,
+			"left": 280,
+			"top": 832,
 			"width": 30,
 			"height": 30,
 			"align": "kCenterJst",
@@ -61,8 +61,8 @@
 			"visible": true
 		},
 		"480": {
-			"left": 44,
-			"top": 668,
+			"left": 320,
+			"top": 832,
 			"width": 30,
 			"height": 30,
 			"align": "kCenterJst",
@@ -72,8 +72,8 @@
 			"visible": true
 		},
 		"667": {
-			"left": 138,
-			"top": 668,
+			"left": 320,
+			"top": 832,
 			"width": 30,
 			"height": 30,
 			"align": "kCenterJst",
@@ -83,8 +83,8 @@
 			"visible": true
 		},
 		"768": {
-			"left": 188,
-			"top": 668,
+			"left": 320,
+			"top": 832,
 			"width": 30,
 			"height": 30,
 			"align": "kCenterJst",
@@ -94,8 +94,8 @@
 			"visible": true
 		},
 		"1024": {
-			"left": 316,
-			"top": 668,
+			"left": 312,
+			"top": 792,
 			"width": 30,
 			"height": 30,
 			"align": "kCenterJst",
@@ -106,7 +106,7 @@
 		},
 		"1280": {
 			"left": 392,
-			"top": 583,
+			"top": 744,
 			"width": 30,
 			"height": 30,
 			"align": "kCenterJst",

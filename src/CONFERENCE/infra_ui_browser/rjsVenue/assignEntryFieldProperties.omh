@@ -27,10 +27,11 @@ If icMode=''|pos('V',icMode)
 	Calculate $cinst.$objs.ilTZcity.$backcolor as lnEnterable
 	
 	Calculate $cinst.$objs.VEN_INSTRUCTIONS.$backcolor as lnEnterable
-	Calculate $cinst.$objs.VEN_STATUS.$backcolor as lnEnterable
-	Calculate $cinst.$objs.VEN_ROOM.$backcolor as lnEnterable
-	Calculate $cinst.$objs.VEN_PHONE.$backcolor as lnEnterable
 	Calculate $cinst.$objs.VEN_COMMENT_INTERNAL.$backcolor as lnEnterable
+	Calculate $cinst.$objs.VEN_TRANSFERS.$backcolor as lnEnterable
+	
+	Calculate $cinst.$objs.VEN_STATUS.$backcolor as lnEnterable
+	Calculate $cinst.$objs.VEN_PHONE.$backcolor as lnEnterable
 End If
 If icMode=''|pos('F',icMode)
 	Calculate $cinst.$objs.FCY_NAME.$backcolor as lnEnterable

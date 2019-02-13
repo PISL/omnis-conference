@@ -47,7 +47,7 @@
 		"order": 4,
 		"type": "kCharacter",
 		"subtype": "kSimplechar",
-		"sublen": 60,
+		"sublen": 1500,
 		"properties": {
 			"desc": "",
 			"nonull": false,
@@ -61,7 +61,7 @@
 		"order": 5,
 		"type": "kCharacter",
 		"subtype": "kSimplechar",
-		"sublen": 255,
+		"sublen": 1500,
 		"properties": {
 			"desc": "",
 			"nonull": false,

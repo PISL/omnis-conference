@@ -1,6 +1,6 @@
 {
 	"ident": 1039,
-	"order": 39,
+	"order": 41,
 	"objtype": "kComponent",
 	"componentlib": "jsEdit",
 	"componentctrl": "Edit Control",
@@ -57,8 +57,8 @@
 	},
 	"layout": {
 		"320": {
-			"left": 254,
-			"top": 171,
+			"left": 8,
+			"top": 360,
 			"width": 80,
 			"height": 25,
 			"align": "kLeftJst",
@@ -68,8 +68,8 @@
 			"visible": true
 		},
 		"375": {
-			"left": 254,
-			"top": 171,
+			"left": 8,
+			"top": 360,
 			"width": 80,
 			"height": 25,
 			"align": "kLeftJst",
@@ -79,8 +79,8 @@
 			"visible": true
 		},
 		"480": {
-			"left": 254,
-			"top": 171,
+			"left": 8,
+			"top": 360,
 			"width": 80,
 			"height": 25,
 			"align": "kLeftJst",
@@ -90,8 +90,8 @@
 			"visible": true
 		},
 		"667": {
-			"left": 254,
-			"top": 171,
+			"left": 184,
+			"top": 168,
 			"width": 80,
 			"height": 25,
 			"align": "kLeftJst",

@@ -1,6 +1,6 @@
 {
 	"ident": 1057,
-	"order": 57,
+	"order": 59,
 	"objtype": "kComponent",
 	"componentlib": "jsDropList",
 	"componentctrl": "Droplist",
@@ -44,9 +44,9 @@
 	},
 	"layout": {
 		"320": {
-			"left": 616,
-			"top": 200,
-			"width": 150,
+			"left": 0,
+			"top": 504,
+			"width": 144,
 			"height": 25,
 			"dragborder": false,
 			"edgefloat": "kEFnone",
@@ -54,9 +54,9 @@
 			"visible": true
 		},
 		"375": {
-			"left": 616,
-			"top": 200,
-			"width": 150,
+			"left": 0,
+			"top": 504,
+			"width": 144,
 			"height": 25,
 			"dragborder": false,
 			"edgefloat": "kEFnone",
@@ -64,9 +64,9 @@
 			"visible": true
 		},
 		"480": {
-			"left": 616,
-			"top": 200,
-			"width": 150,
+			"left": 168,
+			"top": 392,
+			"width": 144,
 			"height": 25,
 			"dragborder": false,
 			"edgefloat": "kEFnone",
@@ -74,8 +74,8 @@
 			"visible": true
 		},
 		"667": {
-			"left": 616,
-			"top": 200,
+			"left": 320,
+			"top": 368,
 			"width": 150,
 			"height": 25,
 			"dragborder": false,
@@ -84,8 +84,8 @@
 			"visible": true
 		},
 		"768": {
-			"left": 616,
-			"top": 200,
+			"left": 352,
+			"top": 368,
 			"width": 150,
 			"height": 25,
 			"dragborder": false,
