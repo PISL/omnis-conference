@@ -1,8 +1,19 @@
 [
 	{
+		"name": "--- COPYRIGHT ---",
+		"ident": 9,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
 		"name": "$construct",
 		"ident": 0,
-		"order": 1,
+		"order": 2,
 		"pvardefs": [
 
 		],
@@ -54,7 +65,7 @@
 	{
 		"name": "checkRequiredLibs",
 		"ident": 8,
-		"order": 2,
+		"order": 3,
 		"pvardefs": [
 			{
 				"name": "pcRequiredLibraries",
@@ -85,7 +96,7 @@
 	{
 		"name": "$init",
 		"ident": 2,
-		"order": 3,
+		"order": 4,
 		"pvardefs": [
 
 		],
@@ -116,7 +127,7 @@
 	{
 		"name": "$destruct",
 		"ident": 1,
-		"order": 4,
+		"order": 5,
 		"pvardefs": [
 
 		],
@@ -127,7 +138,7 @@
 	{
 		"name": "$GetPref",
 		"ident": 3,
-		"order": 5,
+		"order": 6,
 		"pvardefs": [
 			{
 				"name": "pcKEY",
@@ -159,7 +170,7 @@
 	{
 		"name": "$getLibPath",
 		"ident": 5,
-		"order": 6,
+		"order": 7,
 		"pvardefs": [
 
 		],
@@ -170,7 +181,7 @@
 	{
 		"name": "SetDB",
 		"ident": 6,
-		"order": 7,
+		"order": 8,
 		"pvardefs": [
 			{
 				"name": "pSessionObjRef",
@@ -216,7 +227,7 @@
 	{
 		"name": "$addLibraryTables",
 		"ident": 4,
-		"order": 8,
+		"order": 9,
 		"pvardefs": [
 			{
 				"name": "prLibTables",
@@ -234,7 +245,7 @@
 	{
 		"name": "$getTableLibrary",
 		"ident": 7,
-		"order": 9,
+		"order": 10,
 		"desc": "return the library that pcTable is in",
 		"pvardefs": [
 			{

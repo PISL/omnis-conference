@@ -1,8 +1,20 @@
 [
 	{
+		"name": "--- COPYRIGHT ---",
+		"ident": 19,
+		"order": 1,
+		"clientexec": false,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
 		"name": "$construct",
 		"ident": 1,
-		"order": 1,
+		"order": 2,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -27,7 +39,7 @@
 	{
 		"name": "$destruct",
 		"ident": 2,
-		"order": 2,
+		"order": 3,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -39,7 +51,7 @@
 	{
 		"name": "$init",
 		"ident": 0,
-		"order": 3,
+		"order": 4,
 		"clientexec": true,
 		"pvardefs": [
 
@@ -64,7 +76,7 @@
 	{
 		"name": "$event",
 		"ident": 18,
-		"order": 4,
+		"order": 5,
 		"clientexec": true,
 		"pvardefs": [
 
@@ -76,7 +88,7 @@
 	{
 		"name": "$behaviour",
 		"ident": 3,
-		"order": 5,
+		"order": 6,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -88,7 +100,7 @@
 	{
 		"name": "$saveData",
 		"ident": 4,
-		"order": 6,
+		"order": 7,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -113,7 +125,7 @@
 	{
 		"name": "assignEntryFieldProperties",
 		"ident": 5,
-		"order": 7,
+		"order": 8,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -171,7 +183,7 @@
 	{
 		"name": "UserPermissions",
 		"ident": 6,
-		"order": 8,
+		"order": 9,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -189,7 +201,7 @@
 	{
 		"name": "TranslateText",
 		"ident": 7,
-		"order": 9,
+		"order": 10,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -221,7 +233,7 @@
 	{
 		"name": "$displayListClick",
 		"ident": 8,
-		"order": 10,
+		"order": 11,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -246,7 +258,7 @@
 	{
 		"name": "$deleteFCY",
 		"ident": 9,
-		"order": 11,
+		"order": 12,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -264,7 +276,7 @@
 	{
 		"name": "FetchUsers",
 		"ident": 10,
-		"order": 12,
+		"order": 13,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -276,7 +288,7 @@
 	{
 		"name": "DisplayTimezone",
 		"ident": 11,
-		"order": 13,
+		"order": 14,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -301,7 +313,7 @@
 	{
 		"name": "setTabColours",
 		"ident": 12,
-		"order": 14,
+		"order": 15,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -333,7 +345,7 @@
 	{
 		"name": "handleShortcutKey",
 		"ident": 13,
-		"order": 15,
+		"order": 16,
 		"clientexec": true,
 		"pvardefs": [
 			{
@@ -358,7 +370,7 @@
 	{
 		"name": "handleMenuCall",
 		"ident": 14,
-		"order": 16,
+		"order": 17,
 		"clientexec": true,
 		"pvardefs": [
 			{
@@ -377,7 +389,7 @@
 	{
 		"name": "$insertCR",
 		"ident": 15,
-		"order": 17,
+		"order": 18,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -389,7 +401,7 @@
 	{
 		"name": "$editCR",
 		"ident": 16,
-		"order": 18,
+		"order": 19,
 		"clientexec": false,
 		"pvardefs": [
 
@@ -401,7 +413,7 @@
 	{
 		"name": "$deleteCR",
 		"ident": 17,
-		"order": 19,
+		"order": 20,
 		"clientexec": false,
 		"pvardefs": [
 			{

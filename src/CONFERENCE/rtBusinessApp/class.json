@@ -1,6 +1,6 @@
 {
 	"classtype": "kRemoteTask",
-	"internalversion": 46,
+	"internalversion": 47,
 	"superclass": "infra.rtSuper",
 	"nextident": 1,
 	"tvardefs": [
@@ -133,7 +133,7 @@
 		"localtime": true,
 		"maxtime": 0,
 		"maxusers": 0,
-		"moddate": "2018-12-04 08:19:27",
+		"moddate": "2019-02-19 13:46:19",
 		"restful": false,
 		"restfulapiname": "",
 		"showascheckedout": false,

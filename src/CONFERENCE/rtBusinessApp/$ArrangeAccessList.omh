@@ -125,6 +125,13 @@ While $Loop(llPermissions)
 				;  Do tlAuthorisedForms.$add('FORM_PERMISSIONS','User access Permissions','infra.rfLowLevelConfig',0,30,1,lcGroupLowLevel)
 			End If
 			
+		Case 'sle','SLE'     ;; syslogerrors
+			Do tlAuthorisedForms.$add('FORM_ERRORS','System error logs','infra.rjsLogsAll',0,30,1,lcGroupLowLevel)
+		Case 'slv','SLV'     ;; syslogevents
+			Do tlAuthorisedForms.$add('FORM_EVENTS','System event logs','infra.rjsLogsAll',0,30,1,lcGroupLowLevel)
+		Case 'ae','AE'     ;; syslogevents
+			Do tlAuthorisedForms.$add('FORM_ASYNCEM','System generated emails','infra.rjsLogsAll',0,30,1,lcGroupLowLevel)
+			
 			;  add advisers; these are not database table related so only need a "xxx_view" permission
 		Case 'seq'     ;; sequences
 			;  Do tlAuthorisedForms.$add('FORM_SEQ','Sequence numbers','infra.rfLowLevelConfig',0,20,1,lcGroupVeryLast)

@@ -1,6 +1,6 @@
 {
 	"ident": 1116,
-	"order": 93,
+	"order": 86,
 	"objtype": "kBackComponent",
 	"componentlib": "StringTable",
 	"componentctrl": "String Label",

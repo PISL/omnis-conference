@@ -13,5 +13,6 @@ Do llGroups.$add('rjsValidity','FORM_VALID','NAVMENU_DATA')
 
 Do llGroups.$add('infra.rjsReferenceAll','FORM_CFG','NAVMENU_CONFIG')
 Do llGroups.$add('infra.rjsUserAccess','FORM_ACCESS','NAVMENU_CONFIG')
+Do llGroups.$add('infra.rjsLogsAll','FORM_LOGS','NAVMENU_CONFIG')
 
 Quit method llGroups
