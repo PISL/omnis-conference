@@ -4,4 +4,3 @@ On evClick
 	Calculate icMode as 'EF'     ;; edit facility
 	
 	Do $cinst.$behaviour()
-	Do $cinst.$redraw()

@@ -3,4 +3,3 @@ On evClick
 	Do $cinst.$saveData()
 	
 	Do $cinst.$behaviour()
-	Do $cinst.$redraw()

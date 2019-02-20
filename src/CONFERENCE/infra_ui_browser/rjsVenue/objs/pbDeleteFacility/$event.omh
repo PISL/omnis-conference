@@ -8,5 +8,4 @@ On evClick
 		Do irFacility.$getTablesWithChildren(kTrue) Returns lcTablesWithChildren
 		Calculate icDisplayMessage as con($cell(clLabels,'objName','disp_child_nodelete','label'),kCr,lcTablesWithChildren)
 		Do $cinst.$behaviour()
-		Do $cinst.$redraw()
 	End If

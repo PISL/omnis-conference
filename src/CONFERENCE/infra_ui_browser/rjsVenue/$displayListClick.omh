@@ -22,4 +22,3 @@ End If
 Do method DisplayTimezone
 
 Do $cinst.$behaviour()
-Do $cinst.$redraw()
