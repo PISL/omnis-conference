@@ -49,8 +49,10 @@ Do $DefineList(ilTopicDetail,'tArrangements')
 ;  Calculate $cinst.$objs.TabControl_SPKR.$selectedtab as 3
 ;  Calculate $cinst.$objs.TabControl_SPKR.$tabvisible as kFalse
 ;  Breakpoint
-Calculate ilDisplayRecords.$line as 1
-Do method $displayListClick
+If ilDisplayRecords.$linecount
+	Calculate ilDisplayRecords.$line as 1
+	Do method $displayListClick
+End If
 
 Do $cinst.$superSearchList1($cell(clLabels,'objName','sel_conference','label'),'CF_TITLE')     ;; ilSearch1
 ;  Do $cinst.$superSearchList2($cell(clLabels,'objName','DG_STATUS','label'),'RFO_DESC')     ;; ilSearch2

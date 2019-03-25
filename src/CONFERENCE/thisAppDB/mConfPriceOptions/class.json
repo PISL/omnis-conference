@@ -1,13 +1,13 @@
 {
 	"classtype": "kSchema",
-	"internalversion": 4,
+	"internalversion": 5,
 	"nextident": 32153,
 	"properties": {
 		"componenticon": 0,
 		"componenttype": "kCompStoreHidden",
 		"createdate": "2018-10-15 15:47:04",
 		"createinstancewhensubtype": false,
-		"desc": "",
+		"desc": "VIEW used for calculated column values in the UI",
 		"editor": "",
 		"editordata": "",
 		"external": true,

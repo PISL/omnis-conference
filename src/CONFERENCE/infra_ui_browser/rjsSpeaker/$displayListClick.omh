@@ -35,4 +35,3 @@ If inCurrentTab=cnTabTextForClipboard
 End If
 
 Do $cinst.$behaviour()
-Do $cinst.$redraw()

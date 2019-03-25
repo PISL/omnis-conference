@@ -6,4 +6,3 @@ On evTabSelected
 	End If
 	
 	Do $cinst.$behaviour
-	Do $cinst.$redraw()

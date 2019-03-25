@@ -7,4 +7,3 @@ Else
 End If
 
 Do $cinst.$behaviour()
-Do $cinst.$redraw()

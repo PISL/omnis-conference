@@ -10,7 +10,6 @@ If inCurrentTab=cnTabDelegate
 			Do irCurrentRecord.$getTablesWithChildren(kTrue) Returns lcTablesWithChildren
 			Calculate icDisplayMessage as con($cell(clLabels,'objName','disp_child_nodelete','label'),kCr,lcTablesWithChildren)
 			Do $cinst.$behaviour()
-			Do $cinst.$redraw()
 		End If
 	End If
 	
@@ -24,7 +23,6 @@ Else If inCurrentTab=cnTabTopics     ;; PAX
 			Do irTopic.$getTablesWithChildren(kTrue) Returns lcTablesWithChildren
 			Calculate icDisplayMessage as con($cell(clLabels,'objName','disp_child_nodelete','label'),kCr,lcTablesWithChildren)
 			Do $cinst.$behaviour()
-			Do $cinst.$redraw()
 		End If
 	End If
 	
@@ -37,7 +35,6 @@ Else If inCurrentTab=cnTabTextForClipboard     ;; PaymentsIn
 		Do irTopic.$getTablesWithChildren(kTrue) Returns lcTablesWithChildren
 		Calculate icDisplayMessage as con($cell(clLabels,'objName','disp_child_nodelete','label'),kCr,lcTablesWithChildren)
 		Do $cinst.$behaviour()
-		Do $cinst.$redraw()
 	End If
 	
 Else
